@@ -3,9 +3,11 @@
 {
     margin:  10% auto;
     width: 50%;
-    height: 50vh;
-    background-color: aqua;
-    padding: 10px 12px;
+    height: auto;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 0 20px 0px rgba(0,0,0,0.2);
+    border-radius: 5px;
+    padding: 15px 25px;
 }
 
 .body .streem
@@ -20,7 +22,7 @@
     height: 7vh;
     outline: none;
     border-radius: 7px;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 
 .body .subjects
@@ -49,7 +51,7 @@
 .body .zscoreanddistic
 {
     display: flex;
-    margin-top: 10px;
+    margin-top: 20px;
 }
 .zscoreanddistic #zscore
 {
@@ -71,4 +73,23 @@
     border: 1px solid #000;
     outline: none;
 
+}
+
+
+.zscoreanddistic .resultbtn
+{
+    padding: 0 15px;
+    cursor: pointer;
+    margin-left: 12px;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    background-color: #3483EE;
+    color: aliceblue;
+}
+
+.resultbtn:hover 
+{
+    background-color: #296cca;
+    transition: 0.2s;
 }

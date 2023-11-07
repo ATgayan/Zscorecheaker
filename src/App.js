@@ -1,4 +1,4 @@
-import Homepage from './pages/screen/home';
+import Homepage from './pages/screen/result';
 import './styles/result.css'
 
 function App() {
