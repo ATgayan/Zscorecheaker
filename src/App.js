@@ -1,11 +1,10 @@
+import Homepage from './pages/screen/result';
 import './styles/result.css'
-import Homepage from './pages/screen/home';
 
 function App() {
   return (
     <div>
       <Homepage></Homepage>
-
     </div>
   );
 }
