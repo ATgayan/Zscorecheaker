@@ -2,6 +2,7 @@ import React from "react";
 import Mnavbar from "./homepageComponents/navbar";
 import image from './images/image.png'
 import "./homepageComponents/homepage.css"
+import { Link } from "react-router-dom";
 
 
 function Homepage() {
@@ -15,7 +16,7 @@ function Homepage() {
          <div className="subtext">
            <p>Lorazepam, sold under the brand name Ativan among others, is a benzodiazepine medication. It is used to treat anxiety, trouble sleeping, severe agitation</p>
          </div>
-        <button className="homebtn">Find Course</button>
+          <Link to={'/Resultpage'} ><button className="homebtn">Find Course</button></Link>
       </div>
 
       <div className="imgclass">
