@@ -1,7 +1,7 @@
 import React from "react";
-import Mnavbar from "./homepageComponents/navbar";
-import image from './images/image.png'
-import "./homepageComponents/homepage.css"
+import Mnavbar from "../component/navbar";
+import image from '../images/image.png'
+import "../styles/homepage.css"
 import { Link } from "react-router-dom";
 
 
@@ -14,7 +14,7 @@ function Homepage() {
       <div className="Text">
         <h1>Find Your Best <span>Course</span><br/> On your Z-Score</h1>
          <div className="subtext">
-           <p>Lorazepam, sold under the brand name Ativan among others, is a benzodiazepine medication. It is used to treat anxiety, trouble sleeping, severe agitation</p>
+           <p>Minimum "Z" Scores for selection to various Courses of Study of Universities under the Normal Intake, in respect of each district</p>
          </div>
           <Link to={'/Resultpage'} ><button className="homebtn">Find Course</button></Link>
       </div>
