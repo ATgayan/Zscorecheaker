@@ -1,6 +1,6 @@
 import React from "react";
 import Mnavbar from "../component/navbar";
-import image from '../images/image.png'
+import image from '../images/image2.png'
 import "../styles/homepage.css"
 import { Link } from "react-router-dom";
 
