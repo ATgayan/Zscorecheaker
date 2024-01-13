@@ -29,7 +29,7 @@
 
 .header .nav ul li
 {
-    padding: 10px 15px;
+    margin: 5px 15px;
 }
 
 .header .nav ul li a
@@ -37,7 +37,6 @@
     text-decoration: none;
     color: black;
 }
-
 
 .header .nav #logo1
 {
@@ -47,5 +46,6 @@
 .header .nav ul li a:hover 
 {
     color: #3483EE;
-    font-weight: bold;
+    transition: 0.5s;
+    margin-bottom: 1px solid blue;
 }

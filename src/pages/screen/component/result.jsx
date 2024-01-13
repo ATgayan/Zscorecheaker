@@ -13,8 +13,8 @@ export const result = () => {
                     <div className="rows">
                         <div className="subject">
                             <label htmlFor="">Subject Streem</label><br />
-                            <select className='selectsubject'>
-                                <option id='option'>Select Subject Streem</option>
+                            <select className='selectsubject' aria-required>
+                                <option id='option' aria-readonly>Select Subject Streem</option>
                                 <option id='option'>Maths</option>
                                 <option id='option'>Bio Sience</option>
                                 <option id='option'>Technology</option>

@@ -20,7 +20,8 @@
 
 .Text span
 {
-    color: #3483EE;
+    font-weight: bold;
+    color: #1d4a8a;
 }
 
 .Text .subtext
@@ -40,7 +41,7 @@
     outline: none;
     border-radius: 5px;
     border: none;
-    background-color: #3483EE;
+    background-color: #202565;
     color: aliceblue;
     font-size: 15px;
     font-weight: bold;
