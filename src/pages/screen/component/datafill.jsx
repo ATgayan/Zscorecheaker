@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import axios from 'axios';
-import '../styles/senddata.css'
+import '../styles/senddata.css';
+import Nvbr from './navbar'
 
 function Datafill() {
 
@@ -8,9 +8,10 @@ const[formData, setFormData] = useState({
     sunject_strem: '',
     course: '',
     university: '',
+    zscore: '',
 })
     
-     
+  
 const handleSubmit = async (e) => {
   e.preventDefault();
 
@@ -25,6 +26,9 @@ const handleSubmit = async (e) => {
 
      if (response.ok) {
         console.log('Form submitted successfully');
+        alert("Data send Sucessfully");
+        handleReset();
+        
      } else {
         console.error('Error submitting form');
      }
@@ -33,6 +37,16 @@ const handleSubmit = async (e) => {
   }
 };
 
+const handleReset = () => {
+  setFormData({
+    sunject_strem: '',
+    course: '',
+    university: '',
+    zscore: '',
+  });
+};
+
+
 const handleInputChange = (e) => {
   const { name, value } = e.target;
   setFormData({ ...formData, [name]: value });
@@ -40,6 +54,7 @@ const handleInputChange = (e) => {
 
   return (
      <div className="mainf">
+        <Nvbr/>
         <div className="from">
            <form  className='from1' onSubmit={handleSubmit}>
             <div className="text">
@@ -49,9 +64,10 @@ const handleInputChange = (e) => {
               <input type="text"  placeholder='subject streem' name='sunject_strem' value={formData.sunject_strem}   onChange={handleInputChange}/><br />
               <input type="text" placeholder='course' name='course' value={formData.course}  onChange={handleInputChange}/><br />
               <input type="text" placeholder='university' name='university' value={formData.university}  onChange={handleInputChange}/>
+              <input type="number" placeholder='zscore' name='zscore' value={formData.zscore}  onChange={handleInputChange}/>
               <div className="btn-class">
                   <button className='submit' id='btnHover'>Submit</button>
-                  <button type="reset" className='resit'  id='btnHover'>Clear</button>
+                  <button type="reset" className='resit' onClick={handleReset} id='btnHover'>Clear</button>
               </div>
            </form>
         </div>
