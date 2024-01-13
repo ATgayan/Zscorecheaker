@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import Contactus from "../component/contactus";
 import { useState } from "react";
 
+
 function Mnavbar() {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
 
@@ -34,6 +35,11 @@ function Mnavbar() {
             <Link onClick={openPopup}>Contact Us</Link>
             {isPopupOpen && <Contactus onClose={closePopup} />}
           </li>
+
+          <li>
+            <Link to={'/datafill'}>Send Data</Link>
+          </li>
+
         </ul>
       </div>
     </div>

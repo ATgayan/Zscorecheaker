@@ -1,0 +1,93 @@
+.mainf {
+    width: 100%;
+    height: 100vh;
+    background-color: rgb(231, 231, 231);
+    position: absolute;
+}
+
+.mainf .from1 {
+    width: 50%;
+    border-radius: 10px;
+    height: 60vh;
+    background-color: white;
+    margin: 80px auto;
+    text-align: center; /* Center the contents */
+}
+
+.from1 .text
+{
+    position: relative;
+    text-align: left;
+    padding: 15px 30px;
+}
+
+.text h5
+{
+    font-size: 30px;
+}
+
+.text p
+{
+    margin-top: -10px;
+}
+
+.from1 input {
+    width: 90%;
+    padding: 16px;
+    outline: none;
+    border-radius: 8px;
+    border: none;
+    background-color: rgb(240, 240, 240);
+    margin-bottom: 10px;
+    margin: 5px auto; 
+}
+
+
+.from1 .btn-class
+{
+    display: flex;
+    padding: 10px 15px;
+    text-align: center;
+   
+}
+
+.from1 .submit {
+    width: 50%;
+    position: relative;
+    margin-top: 10px;
+    border-radius: 8px;
+    padding: 15px;
+    background-color: #0a5ccf;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.from1 .resit {
+    width: 50%;
+    position: relative;
+    margin-top: 10px;
+    border-radius: 8px;
+    padding: 15px;
+    color: #000;
+    border: 1px solid #000;
+    cursor: pointer;
+    outline: none;
+    margin-left: 10px;
+}
+
+
+.resit:hover
+{
+    background-color: red;
+    transition: 0.5s;
+    border: none;
+    color: #fff;
+}
+
+.submit:hover
+{
+    background-color: rgb(18, 18, 44);
+    color: #fff;
+    transition: 0.5s;
+}
