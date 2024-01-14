@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import '../styles/senddata.css';
-import Nvbr from './navbar'
+import Nvbr from './navbar';
+import Message from './Mesg'
 
 function Datafill() {
 
@@ -10,7 +11,17 @@ const[formData, setFormData] = useState({
     university: '',
     zscore: '',
 })
-    
+
+const [isPopupOpen, setIsPopupOpen] = useState(false);
+
+  const openPopup = () => {
+    setIsPopupOpen(true);
+  };
+
+  const closePopup = () => {
+    setIsPopupOpen(false);
+  };
+
   
 const handleSubmit = async (e) => {
   e.preventDefault();
@@ -26,7 +37,7 @@ const handleSubmit = async (e) => {
 
      if (response.ok) {
         console.log('Form submitted successfully');
-        alert("Data send Sucessfully");
+        openPopup();
         handleReset();
         
      } else {
@@ -47,6 +58,7 @@ const handleReset = () => {
 };
 
 
+
 const handleInputChange = (e) => {
   const { name, value } = e.target;
   setFormData({ ...formData, [name]: value });
@@ -55,16 +67,19 @@ const handleInputChange = (e) => {
   return (
      <div className="mainf">
         <Nvbr/>
+        {isPopupOpen && (
+           <Message onClose={closePopup}/>
+        )}
         <div className="from">
            <form  className='from1' onSubmit={handleSubmit}>
             <div className="text">
             <h5>Send Data to Form</h5>
               <p>send to from data</p>
             </div>
-              <input type="text"  placeholder='subject streem' name='sunject_strem' value={formData.sunject_strem}   onChange={handleInputChange}/><br />
-              <input type="text" placeholder='course' name='course' value={formData.course}  onChange={handleInputChange}/><br />
-              <input type="text" placeholder='university' name='university' value={formData.university}  onChange={handleInputChange}/>
-              <input type="number" placeholder='zscore' name='zscore' value={formData.zscore}  onChange={handleInputChange}/>
+              <input type="text" required  placeholder='subject streem' name='sunject_strem' value={formData.sunject_strem}   onChange={handleInputChange}/><br />
+              <input type="text" required placeholder='course' name='course' value={formData.course}  onChange={handleInputChange}/><br />
+              <input type="text" required placeholder='university' name='university' value={formData.university}  onChange={handleInputChange}/>
+              <input type="number"  required placeholder='zscore' name='zscore' value={formData.zscore}  onChange={handleInputChange}/>
               <div className="btn-class">
                   <button className='submit' id='btnHover'>Submit</button>
                   <button type="reset" className='resit' onClick={handleReset} id='btnHover'>Clear</button>
@@ -72,6 +87,7 @@ const handleInputChange = (e) => {
            </form>
         </div>
      </div>
+     
   )
 }
 export default Datafill

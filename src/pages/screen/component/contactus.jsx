@@ -9,26 +9,6 @@ import { IoMdClose } from "react-icons/io";
 
 
 const Contactus = ({ onClose }) => {
- const[value,setvalue] = useState({
-  name: '',
-  email: '',
-  message: '',
- })
-
-
- const handlechange = (event) => {
-  setvalue({ ...value, [event.target.name]: event.target.value });
-}
-
-
- const handlesubmit =(event)=>{
-  event.preventDefault();
-  axios.post('http://localhost:8081', {value})
-  .then(res => console.log("sucess full data send"))
-  .catch(err => console.log(err))
-  
- }
-
   return (
     <div className="popup">
       <div className="popup-content">
@@ -43,13 +23,13 @@ const Contactus = ({ onClose }) => {
 
             <div className="topmargin">
                 <div className="social">
-                   <p><FaEnvelope/><span>ascorechaek@edu.com</span></p>
+                   <p id='borderHigh'><FaEnvelope/><span>ascorechaek@edu.com</span></p>
                 </div>
                 <div className="social">
                    <p id='borderHigh'><FaPhone/><span>ascorechaek@edu.com</span></p>
                 </div>
                 <div className="social">
-                   <p><FaFacebookF/><span>ascorechaek@edu.com</span></p>
+                   <p id='borderHigh'><FaFacebookF/><span>ascorechaek@edu.com</span></p>
                 </div>
             </div>
 
@@ -62,17 +42,17 @@ const Contactus = ({ onClose }) => {
         </div>
         <div className='section2-form'>   
           <h2>Tell us Your Problem!</h2>     
-            <form  className='fromtop' onSubmit={handlesubmit}>
+            <form  className='fromtop' >
               <div className="input-boxes">
-                 <input required name='name' placeholder='Your name' onChange={handlechange}></input>
+                 <input required name='name' placeholder='Your name' ></input>
               </div>
 
               <div className="input-boxes">
-                <input type='email'  name='email' required placeholder='Email' onChange={handlechange}></input>
+                <input type='email'  name='email' required placeholder='Email' ></input>
               </div>
 
               <div className="input-boxes-text">
-                <textarea required maxLength={250}  name='message' placeholder='Your problem' onChange={handlechange}></textarea>
+                <textarea required maxLength={250}  name='message' placeholder='Your problem'></textarea>
               </div>
 
               <div className="btn-boxes">

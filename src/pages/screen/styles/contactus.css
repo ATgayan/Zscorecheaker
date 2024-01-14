@@ -19,7 +19,7 @@
 
 /* Popup content */
 .popup-content {
-  background-color: #202565;
+  background-color: #fff;
   padding: 5px;
   width: 70%;
   height: 85vh;
@@ -38,6 +38,7 @@
   padding: 8px 8px;
   left: -10px;
   top: 10px;
+  background-color: #100133;
   border-radius: 50px;
   cursor: pointer;
 
@@ -84,7 +85,7 @@
 .section1 .textside h2
 {
   font-size: 35px;
-  color: #fff;
+  color: #202565;
   line-height: 35px;
 }
 
@@ -124,7 +125,7 @@
   font-size: 13px;
   width: 50%;
   text-align: left;
-  background-color: #10013354;
+  background-color: #23286A;
   border: 0.3px solid #fff;
   padding: 10px 12px;
   margin:  5px ;
@@ -142,8 +143,8 @@
 
 .bottomicon #bottomIcon
 {
-  color: #202565;
-  background-color: #fff;
+  color: #ffffff;
+  background-color: #202565;
   cursor: pointer;
   padding: 10px 10px;
   border-radius: 50px;
@@ -261,12 +262,12 @@
 
 .input-boxes input:focus
 {
-  border: 2px solid #3483EE;
+  border: 2px solid #23286A;
   transition: 0.5s;
 }
 
 .input-boxes-text textarea:focus
 {
-  border: 2px solid #3483EE;
+  border: 2px solid #23286A;
   transition: 0.5s;
 }
