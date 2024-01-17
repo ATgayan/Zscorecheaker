@@ -9,7 +9,6 @@ const port = 5000;
 app.use(cors());
 app.use(bodyParser.json());
 
-// MySQL Connection
 const db = mysql.createConnection({
    host: 'localhost',
    user: 'root',
@@ -40,6 +39,25 @@ app.post('/datafill', (req, res) => {
       }
    });
 });
+
+
+app.post('http://localhost:5000/api/Contact_us', (req, res) => {
+   const formData = req.body;
+
+   const query = 'INSERT INTO contact_details SET ?';
+
+   db.query(query, formData, (err, result) => {
+      if (err) {
+         console.error('MySQL query error: ', err);
+         res.status(500).send('Error submitting form');
+      } else {
+         console.log('Form data submitted fuvker imsefiiwer  successfully');
+         res.status(200).send('Form data submitted successfully');
+      }
+   });
+});
+
+
 
 app.listen(port, () => {
    console.log(`Server is running on port ${port}`);
