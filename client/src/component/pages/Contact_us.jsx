@@ -50,7 +50,7 @@ function Contact_us({onClose}) {
        e.preventDefault();
     
        try {
-          const response = await fetch('http://localhost:5000/api/Contact_us', {
+          const response = await fetch('http://localhost:4000/api/Contact_us', {
              method: 'POST',
              headers: {
                 'Content-Type': 'application/json',
