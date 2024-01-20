@@ -1,0 +1,34 @@
+.table_div{
+ 
+    margin-left: 300px;
+}
+
+.tabales{
+    text-align: center;
+    align-items: center;
+    border-collapse: collapse;
+    width: 100%;
+   
+    
+}
+
+.tabales td,.tabales th{
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.tabales tr:nth-child(even){
+    background-color: rgb(71, 195, 233);
+}
+.tabales tr:hover{
+    background-color: aquamarine;
+}
+.tabales th{
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: rgb(4, 7, 170);
+  color: white;
+}
+
+

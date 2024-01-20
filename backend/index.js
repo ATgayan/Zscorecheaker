@@ -57,6 +57,23 @@ app.post('http://localhost:4000/api/Contact_us', (req, res) => {
    });
 });
 
+app.get('/Resultpage',(req,res)=>{
+          const query='SELECT * FROM zscorechecker';
+
+          db.query(query,(err,result)=>{
+            if(err){
+               console.log(err);
+            }
+            else{
+               const data = JSON.stringify(result);
+               const newData=JSON.parse(data);
+               res.send(newData);
+               
+            }
+              
+          });
+});
+
 
 
 app.listen(port, () => {
