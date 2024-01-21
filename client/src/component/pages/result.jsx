@@ -6,6 +6,8 @@ export const Result = () => {
 
   
 
+   
+
     const districts = [
         "Colombo",
         "Gampaha",
@@ -51,19 +53,15 @@ export const Result = () => {
   const [subject4, subjectfun4] = useState("select subject");
   const [subject5, subjectfun5] = useState("select subject");
   const [subject6, subjectfun6] = useState("select subject");
-
-  const UserInpulist={
-    subjectstream,
-    subject2,
-    subject3,
-    subject4,
-    subject5,
-    subject6
-  }
+  
+  const UserInpulist={subjectstream,subject2,subject3,subject4,subject5,subject6};
 
   const SubmitRisult=async(e)=>{
     e.preventDefault();
     try {
+      
+     
+   
 
     const response = await fetch('http://localhost:4000/User-Submited', {
     method: 'POST',
@@ -109,7 +107,7 @@ export const Result = () => {
         <h1>Find Your Course</h1>
         <p>Lorem ipsum dolor sit amet </p>
         <div className="body">
-          <form action="" method="post">
+          <form >
             <div className="rows">
               <div className="subject">
                 <br />
@@ -170,7 +168,7 @@ export const Result = () => {
                 <input type="text" required placeholder="Your Z-score" onChange={(e)=>subjectfun6(e.target.value)}/>
               </div>
               <div className="buttons">
-                <button type="submit" onClick={null}>
+                <button type="submit" onClick={SubmitRisult}>
                   Show Result
                 </button>
                 <button type="reset" id="reset">
@@ -179,7 +177,7 @@ export const Result = () => {
               </div>
             </div>
           </form>
-          <button type="submit" onClick={SubmitRisult}>Click</button>
+          
         </div>
       </div>
       <div className="result_table">
