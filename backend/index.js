@@ -4,7 +4,7 @@ const cors = require('cors');
 const mysql = require('mysql');
 
 const app = express();
-const port = 4500;
+const port = 4000;
 
 app.use(cors());
 app.use(bodyParser.json());
@@ -58,7 +58,8 @@ app.post('/api/Contactus', (req, res) => {
 });
 
 app.get('/Resultpage',(req,res)=>{
-          const query='SELECT * FROM zscorechecker';
+
+   const query='SELECT * FROM zscorechecker';
 
           db.query(query,(err,result)=>{
             if(err){
@@ -72,7 +73,17 @@ app.get('/Resultpage',(req,res)=>{
             }
               
           });
+          
 });
+
+app.post('/User-Submited',(req,res)=>{
+
+   const data=req.body;
+   console.log(data);
+
+   
+
+})
 
 
 

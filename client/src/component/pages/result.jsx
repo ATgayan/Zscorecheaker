@@ -4,6 +4,8 @@ import ResutlTable from "./result_table";
 
 export const Result = () => {
 
+  
+
     const districts = [
         "Colombo",
         "Gampaha",
@@ -46,6 +48,43 @@ export const Result = () => {
 
   const [subject2, subjectfun2] = useState("select subject");
   const [subject3, subjectfun3] = useState("select subject");
+  const [subject4, subjectfun4] = useState("select subject");
+  const [subject5, subjectfun5] = useState("select subject");
+  const [subject6, subjectfun6] = useState("select subject");
+
+  const UserInpulist={
+    subjectstream,
+    subject2,
+    subject3,
+    subject4,
+    subject5,
+    subject6
+  }
+
+  const SubmitRisult=async(e)=>{
+    e.preventDefault();
+    try {
+
+    const response = await fetch('http://localhost:4000/User-Submited', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(UserInpulist),
+  });
+
+  if (response.ok) {
+    console.log('data send...');
+  } else {
+    console.error('Request failed:', response.statusText);
+  }
+    } catch (error) {
+      console.log(`all sending operation faild... ${error}`)
+    }
+
+  }
+
+
+
+
  
   if (subjectstream == "Technology") {
     selectSub = technologysubject;
@@ -57,10 +96,10 @@ export const Result = () => {
   }
   else if(subjectstream=="Commerce"){
        
-    selectSub=bio;
+    selectSub=Commerce;
   }
   else{
-    selectSub=bio;
+    selectSub=Art;
   }
 
   return (
@@ -108,7 +147,7 @@ export const Result = () => {
               </div>
               <div className="results">
                 <br/>
-                <select className="selectsubject" aria-required>
+                <select className="selectsubject" aria-required onChange={(e)=>subjectfun4(e.target.value)}>
                     <option>Subject</option>
                     {selectSub.filter((subjects)=>subjects !==subject3 && subjects !==subject2).map((subjects)=>(
                        <option key={subjects} option={subjects}>{subjects}</option>
@@ -119,7 +158,7 @@ export const Result = () => {
             <div className="rows">
               <div className="distric">
                 <br />
-                <select className="selectsubject" aria-required>
+                <select className="selectsubject" aria-required onChange={(e)=>subjectfun5(e.target.value)}>
                     <option>Select Distric</option>
                     {districts.map((distr)=>(
                         <option value={distr}>{distr}</option>
@@ -128,7 +167,7 @@ export const Result = () => {
               </div>
               <div className="z_score">
                 <br />
-                <input type="text" required placeholder="Your Z-score"/>
+                <input type="text" required placeholder="Your Z-score" onChange={(e)=>subjectfun6(e.target.value)}/>
               </div>
               <div className="buttons">
                 <button type="submit" onClick={null}>
@@ -140,6 +179,7 @@ export const Result = () => {
               </div>
             </div>
           </form>
+          <button type="submit" onClick={SubmitRisult}>Click</button>
         </div>
       </div>
       <div className="result_table">

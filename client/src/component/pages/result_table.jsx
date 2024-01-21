@@ -9,7 +9,7 @@ export const ResutlTable = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("http://localhost:4500/Resultpage");
+        const response = await fetch("http://localhost:4000/Resultpage");
         const fetchedData = await response.json();
         Datafun(fetchedData);
       } catch (error) {
