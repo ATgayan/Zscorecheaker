@@ -1,38 +1,33 @@
 .table_div{
  width: 80%;
- margin: auto;
+ margin: 10% auto;
+ margin-bottom: 3%;
 }
 
 .tabales{
     text-align: center;
     align-items: center;
     border-collapse: collapse;
-    width: 100%;
-   
-    
+    width: 100%; 
 }
 
-
 .tabales td,.tabales th{
-    border: 1px solid #ddd;
+    border-bottom: 1px solid #a0a2a5;
     padding: 8px;
 }
 
-.tabales tr:nth-child(even){
-    background-color: rgb(166, 168, 168);
-}
-.tabales tr:hover{
-    background-color: rgb(18, 19, 18);
-    color: #fff;
-    transition: 0.5s;
+.tabales tr:hover
+{
     cursor: pointer;
+    background-color: rgb(219, 218, 218);
+    
 }
+
 .tabales th{
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: center;
-  background-color: rgb(32, 32, 34);
+  background-color: #3483EE;
   color: white;
 }
-
 

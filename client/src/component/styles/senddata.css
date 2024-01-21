@@ -130,7 +130,7 @@
     height: auto;
     padding: 16px 0;
     border: none;
-    background-color: rgb(4, 176, 255);
+    background-color: #3483EE;
     cursor: pointer;
     color: #fff;
 }
@@ -141,7 +141,7 @@
     height: auto;
     padding: 16px 0;
     border: none;
-    background-color: rgb(4, 176, 255);
+    background-color: #3483EE;
     cursor: pointer;
     color: #fff;
     border-radius: 3px;
@@ -151,6 +151,7 @@
 {
     background-color: red;
 }
+
 
 .rows .subStreem:focus{
     border: 2px sold blue;

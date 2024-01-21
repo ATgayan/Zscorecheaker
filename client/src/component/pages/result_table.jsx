@@ -1,55 +1,72 @@
-import { useEffect, useState } from "react";
-
+import React, { useState, useEffect } from 'react';
 import '../styles/result_table.css';
+import  Loading from '../messages/Loadingm'
+import ErrorLoading from '../messages/Errorloading'
 
-export const ResutlTable = () => {
-  const [data, Datafun] = useState("Emty");
-  const [isLoading, isLoadingfun] = useState(true);
-  const [Erro, Errofun] = useState(false);
+const ResultTable = () => {
+  const [data, setData] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(false);
+
   useEffect(() => {
     const fetchData = async () => {
+      setIsLoading(true);
       try {
+        await new Promise((resolve) => setTimeout(resolve, 2000));
         const response = await fetch("http://localhost:4000/Resultpage");
         const fetchedData = await response.json();
-        Datafun(fetchedData);
+        setData(fetchedData);
       } catch (error) {
-        Errofun(true);
+        setError(true);
+        console.error("Error fetching data:", error);
       } finally {
-        isLoadingfun(false);
+        setIsLoading(false);
       }
     };
+
     fetchData();
   }, []);
+
+
+  const [isErrorModalOpen, setIsErrorModalOpen] = useState(true);
+
+  const handleCloseErrorModal = () => {
+    setIsErrorModalOpen(false);
+  };
 
   return (
     <div className="table_div">
       {isLoading ? (
-        <p>loading</p>
-      ) : Erro ? (
-        <p>Err</p>
+        <Loading />
+      ) : error ? (
+        isErrorModalOpen ? (
+          <ErrorLoading onClose={handleCloseErrorModal} />
+        ) : (
+          <div>
+          </div>
+        )
       ) : (
         <table className="tabales">
           <thead className="t_head">
             <tr className="table_tr">
-              <th>University</th>
               <th>Course</th>
+              <th>University</th>
               <th>Zscore</th>
             </tr>
           </thead>
           <tbody>
-            {data.map((row) => (
-              <tr>
-                <td>{row.university}</td>
+            {data?.map((row) => (
+              <tr key={row.course}>
                 <td>{row.course}</td>
+                <td>{row.university}</td>
                 <td>{row.zscore}</td>
               </tr>
             ))}
           </tbody>
         </table>
       )}
-      ;
     </div>
   );
 };
 
-export default ResutlTable;
+export default ResultTable;

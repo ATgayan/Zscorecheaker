@@ -23,8 +23,6 @@ function Contact_us({onClose}) {
      navigate('/')
    };
 
-
- 
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -50,7 +48,7 @@ function Contact_us({onClose}) {
        e.preventDefault();
     
        try {
-          const response = await fetch('http://localhost:4500/api/Contactus', {
+          const response = await fetch('http://localhost:4000/api/Contactus', {
              method: 'POST',
              headers: {
                 'Content-Type': 'application/json',

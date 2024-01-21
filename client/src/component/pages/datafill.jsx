@@ -100,10 +100,14 @@ const handleSubmit = async (e) => {
 
 const handleReset = () => {
   setFormData({
-    sunject_strem: '',
-    course: '',
-    university: '',
-    zscore: '',
+   sunject_strem: '',
+   course: '',
+   university: '',
+   zscore: '',
+   district:'',
+   subject_one: '',
+   subject_two:'',
+   subject_tree: '',
   });
 };
 
