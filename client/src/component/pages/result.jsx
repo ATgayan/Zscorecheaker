@@ -35,7 +35,7 @@ export const Result = () => {
 
   const technologysubject = ["ICT", "BST", "ET", "SFT","Agri"];
   const bio = ["cemesry", "ll", "bb"];
-  const Maths = ["cemesry", "ll", "bb"];
+  const Maths = ["Chemistry", "Combined Mathematics", "Physics","Information and Communication Technology (ICT)"];
   const Commerce = ["cemesry", "ll", "bb"];
   const Art = ["cemesry", "ll", "bb"];
 
@@ -73,7 +73,6 @@ export const Result = () => {
           <form action="" method="post">
             <div className="rows">
               <div className="subject">
-                <label htmlFor="">Subject Streem</label>
                 <br />
                 <select
                   className="selectsubject"
@@ -89,31 +88,28 @@ export const Result = () => {
                 </select>
               </div>
               <div className="results">
-                <label htmlFor="">Subject One</label>
+        
                 <br />
-
                 <select className="selectsubject" aria-required onChange={(e)=>subjectfun2(e.target.value)}>
-                  <option id="option">Select 1 Sub</option>
+                  <option id="option">Subjects</option>
                   {selectSub.map((subjects) => (
                     <option key={subjects} option={subjects}>{subjects}</option>
                   ))}
                 </select>
               </div>
               <div className="results">
-                <label htmlFor="">Subject Two</label>
                 <br />
                 <select className="selectsubject" aria-required onChange={(e)=>subjectfun3(e.target.value)}>
-                    <option>Select 2 sub</option>
+                    <option aria-readonly>Subjects</option>
                     {selectSub.filter((subjects)=>subjects !==subject2).map((subjects)=>(
                        <option key={subjects} option={subjects}>{subjects}</option>
                     ))}
                 </select>
               </div>
               <div className="results">
-                <label htmlFor="">Subject Three</label>
                 <br/>
                 <select className="selectsubject" aria-required>
-                    <option>Subject 3 sub</option>
+                    <option>Subject</option>
                     {selectSub.filter((subjects)=>subjects !==subject3 && subjects !==subject2).map((subjects)=>(
                        <option key={subjects} option={subjects}>{subjects}</option>
                     ))}
@@ -122,7 +118,6 @@ export const Result = () => {
             </div>
             <div className="rows">
               <div className="distric">
-                <label htmlFor="">Distric</label>
                 <br />
                 <select className="selectsubject" aria-required>
                     <option>Select Distric</option>
@@ -132,9 +127,8 @@ export const Result = () => {
                 </select>
               </div>
               <div className="z_score">
-                <label htmlFor="">Z-Score</label>
                 <br />
-                <input type="text" required />
+                <input type="text" required placeholder="Your Z-score"/>
               </div>
               <div className="buttons">
                 <button type="submit" onClick={null}>
