@@ -109,7 +109,7 @@ export const Result = () => {
         <h1>Find Your Course</h1>
         <p>Lorem ipsum dolor sit amet </p>
         <div className="body">
-          <form action="" method="post">
+          <form action="">
             <div className="rows">
               <div className="subject">
                 <br />
@@ -170,7 +170,7 @@ export const Result = () => {
                 <input type="text" required placeholder="Your Z-score" onChange={(e)=>subjectfun6(e.target.value)}/>
               </div>
               <div className="buttons">
-                <button type="submit" onClick={null}>
+                <button type="submit" onClick={SubmitRisult}>
                   Show Result
                 </button>
                 <button type="reset" id="reset">
@@ -179,7 +179,6 @@ export const Result = () => {
               </div>
             </div>
           </form>
-          <button type="submit" onClick={SubmitRisult}>Click</button>
         </div>
       </div>
       <div className="result_table">
