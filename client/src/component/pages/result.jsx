@@ -95,6 +95,54 @@ export const Result = () => {
       else{
         selectSub=Art;
       }
+  const [subject5, subjectfun5] = useState("select subject");
+  const [subject6, subjectfun6] = useState("select subject");
+  
+  const UserInpulist={subjectstream,subject2,subject3,subject4,subject5,subject6};
+
+  const SubmitRisult=async(e)=>{
+    e.preventDefault();
+    try {
+      
+     
+   
+
+    const response = await fetch('http://localhost:4000/User-Submited', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(UserInpulist),
+  });
+
+  if (response.ok) {
+    console.log('data send...');
+  } else {
+    console.error('Request failed:', response.statusText);
+  }
+    } catch (error) {
+      console.log(`all sending operation faild... ${error}`)
+    }
+
+  }
+
+
+
+
+ 
+  if (subjectstream == "Technology") {
+    selectSub = technologysubject;
+  } else if (subjectstream == "Bio Sience") {
+    selectSub = bio;
+  }
+  else if(subjectstream=="Maths"){
+    selectSub = Maths;
+  }
+  else if(subjectstream=="Commerce"){
+       
+    selectSub=Commerce;
+  }
+  else{
+    selectSub=Art;
+  }
 
   return (
     <div>
@@ -104,6 +152,7 @@ export const Result = () => {
         <p>Lorem ipsum dolor sit amet </p>
         <div className="body">
           <form  onSubmit={SubmitRisult}>
+          <form >
             <div className="rows">
               <div className="subject">
                 <br />
@@ -164,9 +213,7 @@ export const Result = () => {
                 <input type="text" required placeholder="Your Z-score" onChange={(e)=>subjectfun6(e.target.value)}/>
               </div>
               <div className="buttons">
-                <button type="submit">
-                  Show Result
-                </button>
+                <button type="submit" onClick={SubmitRisult}>Show Resul</button>
                 <button type="reset" id="reset">
                   Clear
                 </button>

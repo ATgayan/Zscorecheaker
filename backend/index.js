@@ -84,6 +84,13 @@ app.post('/User-Submited',(req,res)=>{
 
 })
 
+app.post('/submit-form',(req,res)=>{
+   const {Subject_Streem, Subject_One, Subject_Two, Subject_Three,Distric, Z_Score } = req.body;
+   console.log('Received form data:', { Subject_Stream, Subject_One, Subject_Two, Subject_Three, District, Z_Score });
+   res.status(200).send("data send success..");
+
+})
+
 
 
 app.listen(port, () => {
