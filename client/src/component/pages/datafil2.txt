@@ -30,7 +30,7 @@ const districts = [
    "Hambantota",
    "Jaffna",
    "Kilinochchi",
-   "Mannaram",
+   "Mannar",
    "Vavuniya",
    "Mullaitivu",
    "Batticaloa",

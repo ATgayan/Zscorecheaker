@@ -4,7 +4,7 @@ const cors = require('cors');
 const mysql = require('mysql');
 
 const app = express();
-const port = 4000;
+const port = 4500;
 
 app.use(cors());
 app.use(bodyParser.json());
@@ -41,7 +41,7 @@ app.post('/datafill', (req, res) => {
 });
 
 
-app.post('http://localhost:4000/api/Contact_us', (req, res) => {
+app.post('/api/Contactus', (req, res) => {
    const formData = req.body;
 
    const query = 'INSERT INTO contact_details SET ?';

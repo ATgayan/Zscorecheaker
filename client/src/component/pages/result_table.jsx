@@ -9,7 +9,7 @@ export const ResutlTable = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("http://localhost:4000/Resultpage");
+        const response = await fetch("http://localhost:4500/Resultpage");
         const fetchedData = await response.json();
         Datafun(fetchedData);
       } catch (error) {
@@ -31,9 +31,9 @@ export const ResutlTable = () => {
         <table className="tabales">
           <thead className="t_head">
             <tr className="table_tr">
-              <th>university</th>
-              <th>course</th>
-              <th>zscore</th>
+              <th>University</th>
+              <th>Course</th>
+              <th>Zscore</th>
             </tr>
           </thead>
           <tbody>
