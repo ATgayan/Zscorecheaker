@@ -30,7 +30,7 @@ const districts = [
    "Hambantota",
    "Jaffna",
    "Kilinochchi",
-   "Mannar",
+   "Mannaram",
    "Vavuniya",
    "Mullaitivu",
    "Batticaloa",
@@ -132,8 +132,12 @@ const handleInputChange = (e) => {
                     value={formData.sunject_strem}
                     onChange={handleInputChange}>
 
-                     <option value="selet stream">Some option</option>
-                     <option value="otherOption">Other option</option>
+                     <option value="selet stream">Streem</option>
+                     <option value="Maths">Maths</option>
+                     <option value="Biology">Biology</option>
+                     <option value="Maths">Maths</option>
+                     <option value="Art">Arts</option>
+                     <option value="Commerce">Commerce</option>
                   </select>
                </div>
                <div className="rows">
@@ -171,7 +175,7 @@ const handleInputChange = (e) => {
                      value={formData.district}
                      onChange={handleInputChange}
                   >
-                        <option value="someOption">Some option</option>
+                        <option value="District">District</option>
                         {districts.map((distr)=>(
                         <option value={distr}>{distr}</option>
                     ))}
