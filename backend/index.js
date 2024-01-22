@@ -66,7 +66,7 @@ app.post('/User-Submited', (req, res) => {
 
 
  
-   const query = "SELECT * FROM zscorechecker WHERE zscore > ? AND subject_one = ? AND subject_two = ? AND subject_tree = ?;";
+   const query = "SELECT * FROM zscorechecker WHERE zscore < ? AND subject_one = ? AND subject_two = ? AND subject_tree = ?;";
  
    db.query(query, [Zscore, subject1, subject2, subject3], (error, results) => {
      if (error) {
@@ -80,8 +80,6 @@ app.post('/User-Submited', (req, res) => {
    });
  
 });
-
-
 
 
 app.listen(port, () => {

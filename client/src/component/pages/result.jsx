@@ -1,12 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Mnavbar from "./navbar";
 import ResutlTable from "./result_table";
 
 export const Result = () => {
-
-  
- 
-
     const districts = [
         "Colombo",
         "Gampaha",
@@ -74,9 +70,7 @@ export const Result = () => {
     console.log('data send...');
     const datas=await response.json();
     setFetchdata(datas); 
-    
-    
-  
+    console.log(datas)
     
   } else {
     console.error('Request failed:', response.statusText);
@@ -116,7 +110,6 @@ export const Result = () => {
                 <br />
                 <select
                   className="selectsubject"
-                  aria-required
                   onChange={(e) => subjectstreamfun(e.target.value)}
                 >
                   <option id="option">Select Subject Streem</option>
@@ -130,7 +123,7 @@ export const Result = () => {
               <div className="results">
         
                 <br />
-                <select className="selectsubject" aria-required onChange={(e)=>subjectfun2(e.target.value)}>
+                <select className="selectsubject" onChange={(e)=>subjectfun2(e.target.value)}>
                   <option id="option">Subjects</option>
                   {selectSub.map((subjects) => (
                     <option key={subjects} option={subjects}>{subjects}</option>
@@ -139,8 +132,8 @@ export const Result = () => {
               </div>
               <div className="results">
                 <br />
-                <select className="selectsubject" aria-required onChange={(e)=>subjectfun3(e.target.value)}>
-                    <option aria-readonly>Subjects</option>
+                <select className="selectsubject"  onChange={(e)=>subjectfun3(e.target.value)}>
+                    <option>Subjects</option>
                     {selectSub.filter((subjects)=>subjects !==subject1).map((subjects)=>(
                        <option key={subjects} option={subjects}>{subjects}</option>
                     ))}
@@ -148,7 +141,7 @@ export const Result = () => {
               </div>
               <div className="results">
                 <br/>
-                <select className="selectsubject" aria-required onChange={(e)=>subjectfun4(e.target.value)}>
+                <select className="selectsubject"  onChange={(e)=>subjectfun4(e.target.value)}>
                     <option>Subject</option>
                     {selectSub.filter((subjects)=>subjects !==subject2 && subjects !==subject1).map((subjects)=>(
                        <option key={subjects} option={subjects}>{subjects}</option>
@@ -159,7 +152,7 @@ export const Result = () => {
             <div className="rows">
               <div className="distric">
                 <br />
-                <select className="selectsubject" aria-required onChange={(e)=>subjectfun5(e.target.value)}>
+                <select className="selectsubject"  onChange={(e)=>subjectfun5(e.target.value)}>
                     <option>Select Distric</option>
                     {districts.map((distr)=>(
                         <option value={distr}>{distr}</option>
