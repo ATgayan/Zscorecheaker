@@ -1,32 +1,26 @@
-import { useEffect, useState } from "react";
-
+import React, { useState, useEffect } from "react";
 import '../styles/result_table.css';
 
-export const ResutlTable = () => {
-  const [data, Datafun] = useState("Emty");
+export const ResutlTable = ({ props }) => {
+  const [data, Datafun] = useState([]);
   const [isLoading, isLoadingfun] = useState(true);
   const [Erro, Errofun] = useState(false);
+
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch("http://localhost:4000/Resultpage");
-        const fetchedData = await response.json();
-        Datafun(fetchedData);
-      } catch (error) {
-        Errofun(true);
-      } finally {
-        isLoadingfun(false);
-      }
-    };
-    fetchData();
-  }, []);
+    if (Array.isArray(props) && props.length > 0) {
+      Datafun(props); 
+      isLoadingfun(false);
+    } else {
+      Errofun(true);
+    }
+  }, [props]);
 
   return (
     <div className="table_div">
       {isLoading ? (
-        <p>loading</p>
+        <p>Loading</p>
       ) : Erro ? (
-        <p>Err</p>
+        <p>Error</p>
       ) : (
         <table className="tabales">
           <thead className="t_head">
@@ -37,8 +31,8 @@ export const ResutlTable = () => {
             </tr>
           </thead>
           <tbody>
-            {data.map((row) => (
-              <tr>
+            {data.map((row, index) => (
+              <tr key={index}>
                 <td>{row.university}</td>
                 <td>{row.course}</td>
                 <td>{row.zscore}</td>
@@ -47,7 +41,6 @@ export const ResutlTable = () => {
           </tbody>
         </table>
       )}
-      ;
     </div>
   );
 };

@@ -1,12 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from 'react';
 import Mnavbar from "./navbar";
 import ResutlTable from "./result_table";
 
 export const Result = () => {
 
   
-
-   
+ 
 
     const districts = [
         "Colombo",
@@ -35,6 +34,7 @@ export const Result = () => {
         "Ratnapura",
         "Kegalle"
       ];
+
       
 
   const technologysubject = ["ICT", "BST", "ET", "SFT","Agri"];
@@ -48,51 +48,54 @@ export const Result = () => {
  
   const [subjectstream, subjectstreamfun] = useState("select subject");
 
-  const [subject2, subjectfun2] = useState("select subject");
-  const [subject3, subjectfun3] = useState("select subject");
-  const [subject4, subjectfun4] = useState("select subject");
-  const [subject5, subjectfun5] = useState("select subject");
-  const [subject6, subjectfun6] = useState("select subject");
-  
-  const UserInpulist={subjectstream,subject2,subject3,subject4,subject5,subject6};
+  const [subject1, subjectfun2] = useState("select subject");
+  const [subject2, subjectfun3] = useState("select subject");
+  const [subject3, subjectfun4] = useState("select subject");
+  const [Distric, subjectfun5] = useState("select subject");
+  const [Zscore, subjectfun6] = useState("select subject");
 
+  const [fetchdata,setFetchdata]=useState(null);
+  
+  const UserInpulist={subjectstream,subject1,subject2,subject3,Distric,Zscore};
+ 
   const SubmitRisult=async(e)=>{
     e.preventDefault();
     try {
-      
-     
-   
-
     const response = await fetch('http://localhost:4000/User-Submited', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(UserInpulist),
+  
+    
   });
 
+ 
   if (response.ok) {
     console.log('data send...');
+    const datas=await response.json();
+    setFetchdata(datas); 
+    
+    
+  
+    
   } else {
     console.error('Request failed:', response.statusText);
   }
     } catch (error) {
       console.log(`all sending operation faild... ${error}`)
     }
-
   }
-
-
-
 
  
-  if (subjectstream == "Technology") {
+  if (subjectstream ==="Technology") {
     selectSub = technologysubject;
-  } else if (subjectstream == "Bio Sience") {
+  } else if (subjectstream === "Bio Sience") {
     selectSub = bio;
   }
-  else if(subjectstream=="Maths"){
+  else if(subjectstream==="Maths"){
     selectSub = Maths;
   }
-  else if(subjectstream=="Commerce"){
+  else if(subjectstream==="Commerce"){
        
     selectSub=Commerce;
   }
@@ -102,7 +105,7 @@ export const Result = () => {
 
   return (
     <div>
-      <Mnavbar></Mnavbar>
+      <Mnavbar ></Mnavbar>
       <div class="header">
         <h1>Find Your Course</h1>
         <p>Lorem ipsum dolor sit amet </p>
@@ -138,7 +141,7 @@ export const Result = () => {
                 <br />
                 <select className="selectsubject" aria-required onChange={(e)=>subjectfun3(e.target.value)}>
                     <option aria-readonly>Subjects</option>
-                    {selectSub.filter((subjects)=>subjects !==subject2).map((subjects)=>(
+                    {selectSub.filter((subjects)=>subjects !==subject1).map((subjects)=>(
                        <option key={subjects} option={subjects}>{subjects}</option>
                     ))}
                 </select>
@@ -147,7 +150,7 @@ export const Result = () => {
                 <br/>
                 <select className="selectsubject" aria-required onChange={(e)=>subjectfun4(e.target.value)}>
                     <option>Subject</option>
-                    {selectSub.filter((subjects)=>subjects !==subject3 && subjects !==subject2).map((subjects)=>(
+                    {selectSub.filter((subjects)=>subjects !==subject2 && subjects !==subject1).map((subjects)=>(
                        <option key={subjects} option={subjects}>{subjects}</option>
                     ))}
                 </select>
@@ -181,7 +184,7 @@ export const Result = () => {
         </div>
       </div>
       <div className="result_table">
-        <ResutlTable></ResutlTable>
+      {fetchdata !== null && <ResutlTable props={fetchdata} />}
       </div>
       
     </div>

@@ -57,40 +57,30 @@ app.post('/api/Contactus', (req, res) => {
    });
 });
 
-app.get('/Resultpage',(req,res)=>{
 
-   const query='SELECT * FROM zscorechecker';
 
-          db.query(query,(err,result)=>{
-            if(err){
-               console.log(err);
-            }
-            else{
-               const data = JSON.stringify(result);
-               const newData=JSON.parse(data);
-               res.send(newData);
-               
-            }
-              
-          });
-          
+
+
+app.post('/User-Submited', (req, res) => {
+    const { subjectstream, subject1, subject2, subject3, Distric, Zscore } = req.body;
+
+
+ 
+   const query = "SELECT * FROM zscorechecker WHERE zscore > ? AND subject_one = ? AND subject_two = ? AND subject_tree = ?;";
+ 
+   db.query(query, [Zscore, subject1, subject2, subject3], (error, results) => {
+     if (error) {
+       console.error(error);
+       res.status(500).send('Error processing query');
+     } else {
+       const data = JSON.stringify(results);
+       console.log(data);
+       res.send(data); 
+     }
+   });
+ 
 });
 
-app.post('/User-Submited',(req,res)=>{
-
-   const data=req.body;
-   console.log(data);
-
-   
-
-})
-
-app.post('/submit-form',(req,res)=>{
-   const {Subject_Streem, Subject_One, Subject_Two, Subject_Three,Distric, Z_Score } = req.body;
-   console.log('Received form data:', { Subject_Stream, Subject_One, Subject_Two, Subject_Three, District, Z_Score });
-   res.status(200).send("data send success..");
-
-})
 
 
 
