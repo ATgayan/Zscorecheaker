@@ -1,0 +1,109 @@
+.modalbox
+{
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  transform: rotateY('angle');
+}
+
+@keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .modalbox {
+
+    transform: rotateY('angle');
+  }
+  
+  .boxinner {
+    animation: fadeIn 0.1s ease-out; 
+  }
+  
+  .boxinner:hover {
+    transform: scale(0.1s);
+    transition: transform 0.1s ease-in-out;
+  }
+  
+
+
+.boxinner {
+    width: 37%;
+    height: 47vh;
+    padding: 10px 0;
+    background-color: #fff;
+    border-radius: 5px;
+    margin: auto;
+    text-align: center;
+}
+
+
+.boxinner h1 
+{
+    position: relative;
+    top: -10px;
+    font-size: 80px;
+    font-weight: bold;
+    color: #265fad;
+}
+
+.boxinner h3
+{
+  top: -25px;
+  position: relative;
+  color: #272727;
+}
+
+.boxinner .btn-ok
+{
+    margin-top: 18px;
+    border: none;
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: #265fad;
+    width: 25%;
+    padding: 10px 12px;
+}
+
+.boxinner .SuccessImage
+{
+    width: 280px;
+    height: 170px;
+    margin-left: 15px;
+    margin-top: -30px;
+    margin-bottom: 18px;
+}
+
+.boxinner .btn-ok:hover
+{
+    background-color: #1c4175;
+}
+
+.boxinner p
+{
+    margin-top: -15px;
+    font-size: 13px;
+    color: rgb(116, 116, 116);
+}
+
+.boxinner .textbox1
+{
+  width: 60%;
+ 
+}

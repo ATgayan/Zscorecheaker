@@ -62,10 +62,17 @@ app.post('/api/Contactus', (req, res) => {
 
 
 app.post('/User-Submited', (req, res) => {
+
+    const { sunjectstream, subject1, subject2, subject3, Distric, Zscore } = req.body;
+
+
    const { subjectstream, subject1, subject2, subject3, Distric, Zscore } = req.body;
+
  
    const query = `SELECT * FROM zscorechecker WHERE zscore < ? AND ((subject_one IN (?, ?, ?) AND subject_two IN (?, ?, ?) AND subject_tree IN (?, ?, ?)))`;
- 
+
+   db.query(query, [Zscore, subject1, subject2, subject3,], (error, results) => {
+
    const params = [
      Zscore,
      subject1, subject2, subject3,
@@ -74,6 +81,7 @@ app.post('/User-Submited', (req, res) => {
    ];
  
    db.query(query, params, (error, results) => {
+
      if (error) {
        console.error(error);
        res.status(500).send('Error processing query');

@@ -18,18 +18,20 @@
     margin:  5% auto;
     width: 80%;
     height: auto;
-    background-color: rgba(189, 184, 184, 0.575);
+    background-color: rgba(190, 190, 190, 0.541);
     border-radius: 7px;
+    border: 0.1px solid #000;
     padding: 15px 25px;
-    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
 }
 
 .body .rows
 {
     width: auto;
-    padding: 12px;
     display: flex;
+    margin: 5px 0;
 }
+
 
 .body .rows .subject
 {
@@ -42,8 +44,15 @@
     padding: 10px;
     border-radius: 5px;
     border: none;
-    margin-top: 5px;
     outline: none;
+    overflow-y: scroll;
+}
+
+
+.selectsubject .optionsstyle
+{
+   padding: 10px 5px;
+   cursor: pointer;
 }
 
 .rows .results
@@ -66,19 +75,16 @@
 .rows .distric
 {
     width: 30%;
+    top: 15px;
+    position: relative;
     margin-right: 12px;
 }
 
-.rows .distric input
+.selectsubject .optionpadding
 {
-    width: 100%;
-    padding: 12px 0;
-    border-radius: 5px;
-    padding: 10px;
-    border: none;
-    margin-top: 5px;
-    outline: none;
+    padding: 10px 12px;
 }
+
 
 .rows .z_score
 {
@@ -86,21 +92,46 @@
     width: 18%;
 }
 
-
-
 .rows .z_score input
 {
     width: 100%;
-    padding: 12px 10px;
+    padding: 11.5px 10px;
     border-radius: 5px;
     border: none;
-    margin-top: 5px;
+    margin-top: 8px;
     outline: none;
 }
 
+.rows #error
+{
+    color: red;
+    font-size: 13px;
+    font-weight: bold;
+    top: 10px;
+    position: relative;
+}
+
+.rows #errors
+{
+    text-align: left;
+    font-size: 18px;
+    top: 10px;
+    position: relative;
+    color: red;
+}
+.rows #error3
+{
+    font-size: 17px;
+    top: 18px;
+    position: relative;
+    text-align: left;
+    color: red;
+}
+
+
 .rows .buttons
 {
-    margin-top: 30px;
+    margin-top: 29px;
     margin-left: 50px;
 }
 
