@@ -1,4 +1,4 @@
-import React, { useState} from 'react';
+import React, { useState } from 'react';
 import Mnavbar from "./navbar";
 import ResutlTable from "./result_table";
 
@@ -49,14 +49,12 @@ export const Result = () => {
   const [subject3, subjectfun4] = useState("select subject");
   const [Distric, subjectfun5] = useState("select subject");
   const [Zscore, subjectfun6] = useState("select subject");
+
   const [fetchdata,setFetchdata]=useState(null);
   const UserInpulist={subjectstream,subject1,subject2,subject3,Distric,Zscore};
-
+ 
   const SubmitRisult=async(e)=>{
     e.preventDefault();
-    if(!validField(e)){
-       return
-    }
     try {
     setFetchdata(null);
     const response = await fetch('http://localhost:4000/User-Submited', {
@@ -94,40 +92,34 @@ export const Result = () => {
     selectSub=Art;
   }
 
-  const [validateError, setValidateError] = useState(false);
-  const[zscorevalid,setzscorevalid] = useState('');
-  const[error,setError] = useState(false)
+  const [error, setError] = useState("")
 
-  const validField = () => {
-    if (zscorevalid.length === 0) {
-      setValidateError(true);
-      setError(false);
-    } else if (zscorevalid.length > 6) {
-      setValidateError(false);
-      setError(true);
-    } else if (!zscorevalid.includes('.')) {
-      setValidateError(false);
-      setError(true);
-    } else {
-      setValidateError(false);
-      setError(false);
-      return true
+  const validField = (e) => {
+    const trimmedValue = e.trim();
+    if (trimmedValue === '') {
+        setError('*required.');
+        return false;
     }
-  };
-
-
+    const floatRegex = /^\d+(\.\d{1,6})?$/;
+    if (!floatRegex.test(trimmedValue)) {
+         setError('Please enter a valid float number with up to 6 decimal places.');
+        return false;
+    }
+    return true;
+};
 
   return (
     <div>
       <Mnavbar ></Mnavbar>
       <div class="header">
         <h1>Find Your Course</h1>
-        <p>fill the from bellow to find result</p>
+        <p>Lorem ipsum dolor sit amet </p>
         <div className="body">
-          <form className='formbody' >
+          <form >
             <div className="rows">
               <div className="subject">
-                <p id='errors'>*</p>
+                <br />
+
                 <select
                   className="selectsubject"
                   onChange={(e) => subjectstreamfun(e.target.value)}
@@ -142,7 +134,7 @@ export const Result = () => {
               </div>
 
               <div className="results">
-                <p id='errors'>*</p>
+                <br />
                 <select className="selectsubject" onChange={(e)=>subjectfun2(e.target.value)}>
                   <option id="option" value="default" disable hidden>Subjects</option>
                   {selectSub.map((subjects) => (
@@ -152,7 +144,7 @@ export const Result = () => {
               </div>
 
               <div className="results">
-                <p id='errors'>*</p>
+                <br />
                 <select className="selectsubject"  onChange={(e)=>subjectfun3(e.target.value)}>
                     <option value="default" disable hidden>Subjects</option>
                     {selectSub.filter((subjects)=>subjects !==subject1).map((subjects)=>(
@@ -162,8 +154,7 @@ export const Result = () => {
               </div>
 
               <div className="results">
-
-                <p id='errors'>*</p>
+                <br/>
                 <select className="selectsubject"  onChange={(e)=>subjectfun4(e.target.value)}>
                     <option value="default" disable hidden>Subject</option>
                     {selectSub.filter((subjects)=>subjects !==subject2 && subjects !==subject1).map((subjects)=>(
@@ -175,7 +166,7 @@ export const Result = () => {
 
             <div className="rows">
               <div className="distric">
-                <p id='errors'>*</p>
+                <br />
                 <select className="selectsubject"  aria-expanded='false' onChange={(e)=>subjectfun5(e.target.value)}>
                     <option value="default" disable hidden>Select Distric</option>
                     {districts.map((distr)=>(
@@ -185,25 +176,17 @@ export const Result = () => {
               </div>
               <div className="z_score">
                 <br />
-                <input
-                  type="text"
-                  step="0.01"
-                  maxLength="6"
-                  placeholder="Your Z-score"
-                  onChange={(e) => {
-                    subjectfun6(e.target.value);
-                    setzscorevalid(e.target.value);
-                    setValidateError(false);
-                    setError(false)
-                  }}
-                  value={zscorevalid}
+                <input type="number"  
+                 placeholder="Your Z-score" 
+                 onChange={(e) => {
+                  subjectfun6(e.target.value);
+                  validField(e.target.value);
+              }}
+                 required
                 />
-                {validateError ? (
-                    <p id='error'>*This field can not be empty </p>
-                  ) : error ? (
-                    <p id='error'>*must contain a decimal point</p>
-                  ) : null}
+                   {error && <p style={{ color: 'red' }}>{error}</p>}
               </div>
+
               <div className="buttons">
                   <button type="submit" onClick={SubmitRisult}>
                     Show Result

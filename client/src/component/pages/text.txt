@@ -23,12 +23,10 @@ export const ResutlTable = ({ props }) => {
           Datafun(props);
           isLoadingfun(false);
         } else {
-          isLoadingfun(false);
           Errofun(true);
           handleCloseErrorModal(true)
         }
       } catch (error) {
-        isLoadingfun(false);
         Errofun(true);
         handleCloseErrorModal(true)
       }
