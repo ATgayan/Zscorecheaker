@@ -10,6 +10,7 @@ export const ResutlTable = ({ props }) => {
     if (Array.isArray(props) && props.length > 0) {
       Datafun(props); 
       isLoadingfun(false);
+      Errofun(false);
     } else {
       Errofun(true);
     }
@@ -20,7 +21,7 @@ export const ResutlTable = ({ props }) => {
       {isLoading ? (
         <p>Loading</p>
       ) : Erro ? (
-        <p>Error</p>
+        <p>not found</p>
       ) : (
         <table className="tabales">
           <thead className="t_head">

@@ -37,7 +37,7 @@ export const Result = () => {
   const bio = ["cemesry", "ll", "bb"];
   const Maths = ["Chemistry", "Combined Mathematics", "Physics","Information and Communication Technology (ICT)"];
   const Commerce = ["cemesry", "ll", "bb"];
-  const Art = ["cemesry", "ll", "bb"];
+  const Art = ["sinhala", "english", "tamil", "pali", "sanskrit","logic and scientific method", "political science","media and communication" ,"studies,economics","geography","history","dancing","music"];
 
   let selectSub = ["select subject"];
 
