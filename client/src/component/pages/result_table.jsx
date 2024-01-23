@@ -37,9 +37,20 @@ export const ResutlTable = ({ props }) => {
     fetchData();
   }, [props])
 
+    if (Array.isArray(props) && props.length > 0) {
+      Datafun(props); 
+      isLoadingfun(false);
+      Errofun(false);
+    } else {
+      Errofun(true);
+    }
+  }, [props]);
+
+
   return (
     <div className="table_div">
       {isLoading ? (
+
         <Loading />
       ) : Error ? (
         isErrorModalOpen ? (
@@ -48,6 +59,11 @@ export const ResutlTable = ({ props }) => {
           <div>
           </div>
         )
+
+        <p>Loading</p>
+      ) : Erro ? (
+        <p>not found</p>
+
       ) : (
         <table className="tabales">
           <thead className="t_head">
