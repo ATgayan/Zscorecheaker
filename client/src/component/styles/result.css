@@ -18,9 +18,8 @@
     margin:  5% auto;
     width: 80%;
     height: auto;
-    background-color: rgba(190, 190, 190, 0.541);
+    background-color: rgba(168, 168, 168, 0.541);
     border-radius: 7px;
-    border: 0.1px solid #000;
     padding: 15px 25px;
     overflow: hidden;
 }
@@ -131,7 +130,7 @@
 
 .rows .buttons
 {
-    margin-top: 29px;
+    margin-top: 32px;
     margin-left: 50px;
 }
 

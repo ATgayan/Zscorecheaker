@@ -57,31 +57,37 @@ app.post('/api/Contactus', (req, res) => {
    });
 });
 
+app.post('/Serverlogin', (req, res) => {
+   const { username, password } = req.body;
+ 
+   const query = 'SELECT * FROM login WHERE user_name= ? AND password=?';
+
+   const datasets = [username, password]
+
+   db.query(query, datasets, (error, results) => {
+      if (error) {
+        console.error(error);
+        res.status(500).send('Error processing query');
+      } else {
+        const data = JSON.stringify(results);
+        console.log(data);
+        res.send(data);
+      }
+    });
+ });
+
 
 
 
 
 app.post('/User-Submited', (req, res) => {
-
     const { sunjectstream, subject1, subject2, subject3, Distric, Zscore } = req.body;
 
 
-   const { subjectstream, subject1, subject2, subject3, Distric, Zscore } = req.body;
-
  
-   const query = `SELECT * FROM zscorechecker WHERE zscore < ? AND ((subject_one IN (?, ?, ?) AND subject_two IN (?, ?, ?) AND subject_tree IN (?, ?, ?)))`;
-
+   const query = "SELECT * FROM zscorechecker WHERE zscore < ? AND subject_one = ? AND subject_two = ? AND subject_tree = ?;";
+ 
    db.query(query, [Zscore, subject1, subject2, subject3,], (error, results) => {
-
-   const params = [
-     Zscore,
-     subject1, subject2, subject3,
-     subject1, subject2, subject3,
-     subject1, subject2, subject3
-   ];
- 
-   db.query(query, params, (error, results) => {
-
      if (error) {
        console.error(error);
        res.status(500).send('Error processing query');
@@ -91,8 +97,8 @@ app.post('/User-Submited', (req, res) => {
        res.send(data);
      }
    });
- });
  
+});
 
 
 app.listen(port, () => {
