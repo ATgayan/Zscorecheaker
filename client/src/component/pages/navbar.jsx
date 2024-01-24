@@ -36,11 +36,6 @@ function Mnavbar() {
             <Link onClick={openPopup}>Contact Us</Link>
             {isPopupOpen && <Contactus onClose={closePopup} />}
           </li>
-
-          <li>
-            <Link to={'/datafill'}>Send Data</Link>
-          </li>
-
         </ul>
       </div>
     </div>

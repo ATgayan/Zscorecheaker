@@ -12,7 +12,7 @@ function Errorloading({onClose}) {
     <div className='modalbox'>
        <div className="boxinner">
            <img src={Image} alt="" srcset="" className='SuccessImage'/>
-            <h3>Result Not Found !!</h3>
+            <h3>Result Not Found !</h3>
            <p>Opps something went wrong<br/>try again.</p>
            <button onClick={handleContinue} className='btn-ok'>OK</button>
         </div>
