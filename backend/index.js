@@ -25,7 +25,19 @@ db.connect(err => {
 });
 
 app.post('/datafill', (req, res) => {
-   const formData = req.body;
+   const {subjectstream,subject1,subject2,subject3,Distric,Zscore,Corse,univercity}=req.body;
+
+
+   const formData = {
+      sunject_strem: subjectstream,
+      course:Corse,
+      university:univercity,
+      subject_one: subject1,
+      subject_two: subject2,
+      subject_tree: subject3,
+      district: Distric, 
+      Zscore: Zscore
+    };
 
    const query = 'INSERT INTO zscorechecker SET ?';
 
@@ -39,6 +51,7 @@ app.post('/datafill', (req, res) => {
       }
    });
 });
+
 
 
 app.post('/api/Contactus', (req, res) => {
@@ -80,23 +93,11 @@ app.post('/Serverlogin', (req, res) => {
 
 
 
-app.post('/User-Submited', (req, res) => {
+ app.post('/User-Submited', (req, res) => {
    const { subjectstream, subject1, subject2, subject3, Distric, Zscore } = req.body;
  
    const query = `SELECT * FROM zscorechecker WHERE zscore < ? AND ((subject_one IN (?, ?, ?) AND subject_two IN (?, ?, ?) AND subject_tree IN (?, ?, ?)))`;
-
-app.post('/User-Submited', (req, res) => {
-
-    const { sunjectstream, subject1, subject2, subject3, Distric, Zscore } = req.body;
-
-
-   const { subjectstream, subject1, subject2, subject3, Distric, Zscore } = req.body;
-
  
-   const query = `SELECT * FROM zscorechecker WHERE zscore < ? AND ((subject_one IN (?, ?, ?) AND subject_two IN (?, ?, ?) AND subject_tree IN (?, ?, ?)))`;
-
-   db.query(query, [Zscore, subject1, subject2, subject3,], (error, results) => {
-
    const params = [
      Zscore,
      subject1, subject2, subject3,
@@ -115,8 +116,7 @@ app.post('/User-Submited', (req, res) => {
      }
    });
  });
-
-
+ 
 
 app.listen(port, () => {
    console.log(`Server is running on port ${port}`);
