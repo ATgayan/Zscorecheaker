@@ -33,10 +33,10 @@ export const Result = () => {
 
       
 
-  const technologysubject = ["ICT", "BST", "ET", "SFT","Agri"];
+  const technologysubject = ["Engineering Tech","Bio Systems Tech","Science for Tech (SFT)","Information and communication Technolog","Economics","Geography","Home Economics", "English Language" , "Accountancy" ,  "Communication and Media Study" ,"Arts","Business Studies","Agriculture"];
   const bio = ["cemesry", "ll", "bb"];
   const Maths = ["Chemistry", "Combined Mathematics", "Physics","Information and Communication Technology (ICT)"];
-  const Commerce = ["cemesry", "ll", "bb"];
+  const Commerce = ["Accountancy", "Business Studies (BS)", "Economics","Business Statistics","Geography","Political Science","History","The logic and the scientific method","English","German","French","Agricultural Sciences","Combined Mathematics","Information and Communication Technology (ICT)"];
   const Art = ["sinhala", "english", "tamil", "pali", "sanskrit","logic and scientific method", "political science","media and communication" ,"studies,economics","geography","history","dancing","music"];
 
   let selectSub = ["select subject"];
@@ -90,8 +90,13 @@ export const Result = () => {
   else if(subjectstream==="Commerce"){
     selectSub=Commerce;
   }
-  else{
+  else if(subjectstream==="Art"){
+
     selectSub=Art;
+
+  }
+  else{
+    selectSub=selectSub;
   }
 
   const [validateError, setValidateError] = useState(false);
@@ -132,18 +137,18 @@ export const Result = () => {
                   className="selectsubject"
                   onChange={(e) => subjectstreamfun(e.target.value)}
                 >
-                  <option id="option" value="default" disable hidden>Select Subject Streem</option>
+                  <option id="option" value="default" >Select Subject Streem</option>
                   <option id="Maths">Maths</option>
-                  <option id="Bio">Bio Sience</option>
+                  <option id="Bio">Sience</option>
                   <option id="Technology">Technology</option>
-                  <option id="Art">Art</option>
                   <option id="Commerce">Commerce</option>
+                  <option id="Art">Art</option>
                 </select>
               </div>
 
               <div className="results">
                 <p id='errors'>*</p>
-                <select className="selectsubject" onChange={(e)=>subjectfun2(e.target.value)}>
+                <select className="selectsubject" onChange={(e)=>subjectfun2(e.target.value) } required>
                   <option id="option" value="default" disable hidden>Subjects</option>
                   {selectSub.map((subjects) => (
                     <option key={subjects} option={subjects}>{subjects}</option>
@@ -153,7 +158,7 @@ export const Result = () => {
 
               <div className="results">
                 <p id='errors'>*</p>
-                <select className="selectsubject"  onChange={(e)=>subjectfun3(e.target.value)}>
+                <select className="selectsubject"  onChange={(e)=>subjectfun3(e.target.value) }>
                     <option value="default" disable hidden>Subjects</option>
                     {selectSub.filter((subjects)=>subjects !==subject1).map((subjects)=>(
                        <option key={subjects} option={subjects}>{subjects}</option>
@@ -176,7 +181,7 @@ export const Result = () => {
             <div className="rows">
               <div className="distric">
                 <p id='errors'>*</p>
-                <select className="selectsubject"  aria-expanded='false' onChange={(e)=>subjectfun5(e.target.value)}>
+                <select className="selectsubject"  aria-expanded='false' onChange={(e)=>subjectfun5(e.target.value)} required>
                     <option value="default" disable hidden>Select Distric</option>
                     {districts.map((distr)=>(
                         <option  value={distr}>{distr}</option>

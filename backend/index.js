@@ -25,7 +25,19 @@ db.connect(err => {
 });
 
 app.post('/datafill', (req, res) => {
-   const formData = req.body;
+   const {subjectstream,subject1,subject2,subject3,Distric,Zscore,Corse,univercity}=req.body;
+
+
+   const formData = {
+      sunject_strem: subjectstream,
+      course:Corse,
+      university:univercity,
+      subject_one: subject1,
+      subject_two: subject2,
+      subject_tree: subject3,
+      district: Distric, 
+      Zscore: Zscore
+    };
 
    const query = 'INSERT INTO zscorechecker SET ?';
 
@@ -39,6 +51,7 @@ app.post('/datafill', (req, res) => {
       }
    });
 });
+
 
 
 app.post('/api/Contactus', (req, res) => {
@@ -85,9 +98,9 @@ app.post('/User-Submited', (req, res) => {
 
 
  
-   const query = "SELECT * FROM zscorechecker WHERE zscore < ? AND subject_one = ? AND subject_two = ? AND subject_tree = ?;";
+   const query = "SELECT * FROM zscorechecker WHERE zscore < ? sunject_strem	= ? AND subject_one = ? AND subject_two = ? AND subject_tree = ?;";
  
-   db.query(query, [Zscore, subject1, subject2, subject3,], (error, results) => {
+   db.query(query, [Zscore,sunjectstream, subject1, subject2, subject3,], (error, results) => {
      if (error) {
        console.error(error);
        res.status(500).send('Error processing query');
