@@ -93,14 +93,21 @@ app.post('/Serverlogin', (req, res) => {
 
 
 
-app.post('/User-Submited', (req, res) => {
-    const { sunjectstream, subject1, subject2, subject3, Distric, Zscore } = req.body;
-
-
+ app.post('/User-Submited', (req, res) => {
+   const { subjectstream, Distric, Zscore,subject1, subject2, subject3, } = req.body;
  
-   const query = "SELECT * FROM zscorechecker WHERE zscore < ? sunject_strem	= ? AND subject_one = ? AND subject_two = ? AND subject_tree = ?;";
+   const query = `SELECT * FROM zscorechecker WHERE zscore < ? AND sunject_strem	=? AND district=? AND ((subject_one IN (?, ?, ?) AND subject_two IN (?, ?, ?) AND subject_tree IN (?, ?, ?)))`;
  
-   db.query(query, [Zscore,sunjectstream, subject1, subject2, subject3,], (error, results) => {
+   const params = [
+     Zscore,
+     subjectstream,
+     Distric,
+     subject1, subject2, subject3,
+     subject1, subject2, subject3,
+     subject1, subject2, subject3
+   ];
+ 
+   db.query(query, params, (error, results) => {
      if (error) {
        console.error(error);
        res.status(500).send('Error processing query');
@@ -110,9 +117,7 @@ app.post('/User-Submited', (req, res) => {
        res.send(data);
      }
    });
- 
-});
-
+ });
 
 app.listen(port, () => {
    console.log(`Server is running on port ${port}`);
