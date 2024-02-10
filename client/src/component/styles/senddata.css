@@ -129,9 +129,15 @@
     height: auto;
     padding: 16px 0;
     border: none;
-    background-color: rgb(4, 176, 255);
+    background-color: #202565;
     cursor: pointer;
     color: #fff;
+}
+
+
+.btn-class .submit:hover
+{
+    background-color: #343ca7;
 }
 
 .btn-class button
@@ -151,6 +157,7 @@
     background-color: red;
 }
 
-.rows .subStreem:focus{
-    border: 2px sold blue;
+.btn-class .resit:hover
+{
+    background-color: rgb(199, 0, 0);
 }

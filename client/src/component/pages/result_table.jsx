@@ -5,43 +5,49 @@ import ErrorLoading from '../messages/Errorloading'
 
 export const ResutlTable = ({ props }) => {
   const [data, Datafun] = useState([]);
-  const [isLoading, isLoadingfun] = useState(true);
-  const [Error, Errofun] = useState(false);
-
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(false);
   const [isErrorModalOpen, setIsErrorModalOpen] = useState(false);
 
   const handleCloseErrorModal = (e) => {
     setIsErrorModalOpen(e);
   };
 
-
   useEffect(() => {
     const fetchData = async () => {
       try {
         if (Array.isArray(props) && props.length !== 0) {
+          const modifiData = props.map(obj => {
+            if (obj.zscore === '0') {
+              return { ...obj, zscore: 'සු.නෝ (සුදුසුකම් ලබා නොමැත)'};
+            } else {
+              return obj;
+            }
+          });
           await new Promise(resolve => setTimeout(resolve, 2000));
-          Datafun(props);
-          isLoadingfun(false);
+          Datafun(modifiData);
+          setIsLoading(false);
         } else {
-          isLoadingfun(false);
-          Errofun(true);
-          handleCloseErrorModal(true)
+          setIsLoading(false);
+          setError(true);
+          handleCloseErrorModal(true);
         }
       } catch (error) {
-        isLoadingfun(false);
-        Errofun(true);
-        handleCloseErrorModal(true)
+        setIsLoading(false);
+        setError(true);
+        handleCloseErrorModal(true);
       }
     };
-
+  
     fetchData();
-  }, [props])
+  }, [props]);
+  
 
   return (
     <div className="table_div">
       {isLoading ? (
         <Loading />
-      ) : Error ? (
+      ) : error ? (
         isErrorModalOpen ? (
           <ErrorLoading onClose={handleCloseErrorModal} />
         ) : (
@@ -49,6 +55,7 @@ export const ResutlTable = ({ props }) => {
           </div>
         )
       ) : (
+        
         <table className="tabales">
           <thead className="t_head">
             <tr className="table_tr">

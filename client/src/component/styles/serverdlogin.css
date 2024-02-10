@@ -99,6 +99,21 @@
     justify-content: space-between;
 }
 
+.form .sucess
+{
+    margin: 0 26px;
+    padding: 6px 15px;
+    text-align: center;
+    width: auto;
+    height: auto;
+    background-color: rgba(13, 218, 40, 0.466);
+    color: #000000;
+    border-radius: 5px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    display: flex;
+    justify-content: space-between;
+}
+
 .error p
 {
     font-weight: lighter;
@@ -117,4 +132,12 @@
 {
     background-color: rgb(77, 2, 2);
     border-radius: 10px;
+}
+
+.inputboxs #emptyerror
+{
+    position: relative;
+    color: red;
+    margin-left: 5%;
+    font-size: 13px;
 }

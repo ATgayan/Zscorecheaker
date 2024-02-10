@@ -20,7 +20,7 @@ function Contact_us({onClose}) {
    const closePopup = () => {
      setIsPopupOpen(false);
      onClose(); 
-     navigate('/datafill')
+     navigate('/')
    };
 
 

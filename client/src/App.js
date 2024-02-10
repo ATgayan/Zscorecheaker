@@ -4,7 +4,7 @@ import './component/styles/result.css';
 import './component/styles/aboutus.css';
 import Contactus from './component/pages/Contact_us'
 import Aboutus from './component/pages/About_us';
-import Serverlogin from './component/pages/serverlogin'
+import AdminLogin from './component/pages/serverlogin'
 import Datafill from './component/pages/datafill'
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
@@ -17,7 +17,7 @@ function App() {
         <Route path="/" element={<Contactus />} />
         <Route path="/aboutus" element={<Aboutus />} />
         <Route path="/datafill" element={<Datafill />} />
-        <Route path="/serverlogin" element={<Serverlogin />} />
+        <Route path="/serverlogin" element={<AdminLogin />} />
       </Routes>
     </BrowserRouter>
   );

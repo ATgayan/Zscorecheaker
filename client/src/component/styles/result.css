@@ -1,9 +1,10 @@
 
-
 .header h1
 {
     margin-top: 5%;
     text-align: center;
+    font-weight: bold;
+    color: rgb(24, 24, 24);
 }
 
 .header p
@@ -15,7 +16,7 @@
 
 .header .body
 {
-    margin:  5% auto;
+    margin:  3% auto;
     width: 80%;
     height: auto;
     background-color: rgba(168, 168, 168, 0.541);
@@ -28,9 +29,19 @@
 {
     width: auto;
     display: flex;
-    margin: 5px 0;
+    margin: 15px 0;
 }
 
+
+
+.formbody .rows p
+{
+    margin-top: 1px;
+    font-size: 14px;
+    color: red;
+    float: left;
+    font-weight: normal;
+}
 
 .body .rows .subject
 {
@@ -40,11 +51,13 @@
 .rows .selectsubject
 {
     width:  100%;
-    padding: 10px;
+    padding: 12px;
     border-radius: 5px;
     border: none;
     outline: none;
     overflow-y: scroll;
+    font-weight: bold;
+    color: rgb(104, 101, 101);  
 }
 
 
@@ -63,7 +76,7 @@
 .rows .results input
 {
     width:  auto;
-    padding: 10px;
+    padding: 12px;
     border-radius: 5px;
     outline: none;
     border: none;
@@ -73,8 +86,8 @@
 
 .rows .distric
 {
+    margin-top: 15px;
     width: 30%;
-    top: 15px;
     position: relative;
     margin-right: 12px;
 }
@@ -84,9 +97,10 @@
     padding: 10px 12px;
 }
 
-
 .rows .z_score
 {
+    margin-top: 15px;
+    position: relative;
     margin-left: 8.5%;
     width: 18%;
 }
@@ -94,49 +108,22 @@
 .rows .z_score input
 {
     width: 100%;
-    padding: 11.5px 10px;
+    padding: 12.5px 10px;
     border-radius: 5px;
     border: none;
-    margin-top: 8px;
     outline: none;
-}
-
-.rows #error
-{
-    color: red;
-    font-size: 13px;
-    font-weight: bold;
-    top: 10px;
-    position: relative;
-}
-
-.rows #errors
-{
-    text-align: left;
-    font-size: 18px;
-    top: 10px;
-    position: relative;
-    color: red;
-}
-.rows #error3
-{
-    font-size: 17px;
-    top: 18px;
-    position: relative;
-    text-align: left;
-    color: red;
 }
 
 
 .rows .buttons
 {
-    margin-top: 32px;
+    margin-top: 15px;
     margin-left: 50px;
 }
 
 .rows .buttons button
 {
-    padding: 10px 17px;
+    padding: 12px 45px;
     margin-right: 15px;
     border-radius: 5px;
     border: none;
@@ -153,7 +140,7 @@
 .rows .buttons #reset
 {
     background-color: rgb(255, 8, 0);
-    padding: 10px 30px;
+    padding: 12px 50px;
 }
 
 .rows .buttons #reset:hover
