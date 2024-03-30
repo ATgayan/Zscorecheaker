@@ -17,15 +17,8 @@ export const ResutlTable = ({ props }) => {
     const fetchData = async () => {
       try {
         if (Array.isArray(props) && props.length !== 0) {
-          const modifiData = props.map(obj => {
-            if (obj.zscore === '0') {
-              return { ...obj, zscore: 'සු.නෝ (සුදුසුකම් ලබා නොමැත)'};
-            } else {
-              return obj;
-            }
-          });
           await new Promise(resolve => setTimeout(resolve, 2000));
-          Datafun(modifiData);
+          Datafun(props);
           setIsLoading(false);
         } else {
           setIsLoading(false);
@@ -50,12 +43,7 @@ export const ResutlTable = ({ props }) => {
       ) : error ? (
         isErrorModalOpen ? (
           <ErrorLoading onClose={handleCloseErrorModal} />
-        ) : (
-          <div>
-          </div>
-        )
-      ) : (
-        
+        ) : null): (
         <table className="tabales">
           <thead className="t_head">
             <tr className="table_tr">

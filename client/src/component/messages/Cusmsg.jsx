@@ -15,7 +15,7 @@ export default function Cusmsg({onClose}) {
        <div className="box">
          <img src={Image} alt="Logo" className='SuccessImage'/>
           <h2>Success !</h2>
-          <p>form submited !</p>
+          <p>form submited</p>
            <button onClick={handleContinue} className='btn-ok'>Continue</button>
        </div>
     </div>

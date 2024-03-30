@@ -9,8 +9,8 @@ export default function Mesg({onClose}) {
        <div className="box">
          <img src={Image} alt="Logo" className='SuccessImage'/>
           <h2>Success !</h2>
-          <p>Record Saved!</p>
-           <button onClick={onClose} className='btn-ok'>Continue</button>
+          <p style={{marginTop: '-10px',fontSize: '13px'}}>Record Saved</p>
+           <button onClick={onClose} className='button_ok'>Continue</button>
        </div>
     </div>
   )

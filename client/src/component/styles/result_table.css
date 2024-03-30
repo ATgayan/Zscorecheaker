@@ -1,5 +1,5 @@
 .table_div{
-   width: 80%;
+   width: 90%;
    max-height: 100vh;
    margin: auto;
    overflow-y: auto;
@@ -36,7 +36,7 @@
   
 .tabales tr:nth-child(even)
   {
-      background-color: #f1f1f1;
+      background-color: #e6e6e6ce;
   }
 
 .tabales tr:hover{
@@ -45,3 +45,44 @@
     color: #ffffff;
 }
 
+
+@media only screen and (max-width: 565px){
+    .table_div{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100%;
+        background-color: rgb(32, 0, 0);
+        max-height: 100vh;    
+     }
+     
+     .tabales{
+         align-items: center;
+         border-collapse: collapse;
+         width: 100%;
+     }
+     
+     .table_div #tableHeader
+     {
+         text-align: center;
+         margin-bottom: 50px;
+     }
+     
+     .tabales td{
+         border: none;
+         padding: 8px 15px;
+         font-size: 12px;
+     }
+     
+     .tabales .t_head th{
+         position: sticky;
+         top: 0;
+         padding: 12px 15px;
+         text-align: left;
+         background-color: #4b4b4b;
+         color: white;
+       }
+       
+     
+}

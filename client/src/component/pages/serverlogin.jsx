@@ -65,7 +65,7 @@ const ServerLogin = () => {
   return (
     <div className='bodybox'>
       <div className="form">
-        <h2>LOGIN</h2>
+        <h2>Login</h2>
         {erros ?(
           <div className='error'><p>Invalid username or password</p><IoIosClose className='closeicon' onClick={closemodal}/></div>
         ):loading ?(

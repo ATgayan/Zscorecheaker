@@ -21,7 +21,7 @@ function Datafill() {
 
     "ENGINEERING TECHNOLOGY (ET)",
     "BIOSYSTEMS TECHNOLOGY (BST)",
-    "INFORMATION COMMUNICATION TECHNOLOGY(BICT)"
+    "Bachelor of Information and Communication Technology(BICT)"
   ];
 const Maths_course=[
 "APPLIED SCIENCES (BIO.SC)",
@@ -253,8 +253,7 @@ const Commerce_Corses=[
       <div className="from">
         <form className="from1" onSubmit={handleSubmit}>
           <div className="text">
-            <h5>Send Data to Form</h5>
-            <p>send to from data</p>
+            <h5>Add New courses to data base</h5>
           </div>
           <div className="rows">
             <select

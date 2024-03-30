@@ -193,129 +193,129 @@ return (
         <h1>Find Your Course Here</h1>
         <div className="body">
           <form className='formbody' onReset={handleReset}>
-            <div className="rows">
-              <div className="subject">
-                <select
-                  className="selectsubject"
-                  onChange={(e) =>{ subjectstreamfun(e.target.value);
-                    setstreemerror(false)
-                  }}
-                  style={streemerror ? {border: '1px solid red'}:null}
-                >
-                  <option id="option" value="default" hidden>Select Subject Streem</option>
-                  <option id="Maths">Maths</option>
-                  <option id="Bio">Sience</option>
-                  <option id="Technology">Technology</option>
-                  <option id="Commerce">Commerce</option>
-                  <option id="Art">Art</option>
-                </select>
-                {streemerror ? (
-                  <p>Please select subject streem</p>
-                ): null}
-              </div>
+              <div className="rows">
+                  <div className="subject">
+                      <select
+                        className="selectsubject"
+                        onChange={(e) =>{ subjectstreamfun(e.target.value);
+                          setstreemerror(false)
+                        }}
+                        style={streemerror ? {border: '1px solid red'}:null}
+                      >
+                        <option id="option" value="default" hidden>Select Subject Streem</option>
+                        <option id="Maths">Maths</option>
+                        <option id="Bio">Sience</option>
+                        <option id="Technology">Technology</option>
+                        <option id="Commerce">Commerce</option>
+                        <option id="Art">Art</option>
+                      </select>
+                      {streemerror ? (
+                        <p>Please select subject streem</p>
+                      ): null}
+                  </div>
 
-              <div className="results">
-                <select className="selectsubject" onChange={(e)=>{subjectfun2(e.target.value);
-                    setsub1error(false)
-                  }} 
-                  style={subject1error ? {border: '1px solid red'}:null}
-                  >
-                  <option id="option" value="default"  hidden>Select Subjects</option>
-                  {selectSub.map((subjects) => (
-                    <option key={subjects} option={subjects}>{subjects}</option>
-                  ))}
-                </select>
-                {subject1error ? (
-                  <p>Please select subject</p>
-                ): null}
-              </div>
+                  <div className="results">
+                      <select className="selectsubject" onChange={(e)=>{subjectfun2(e.target.value);
+                          setsub1error(false)
+                        }} 
+                        style={subject1error ? {border: '1px solid red'}:null}
+                        >
+                        <option id="option" value="default"  hidden>Select Subjects</option>
+                        {selectSub.map((subjects) => (
+                          <option key={subjects} option={subjects}>{subjects}</option>
+                        ))}
+                      </select>
+                      {subject1error ? (
+                        <p>Please select subject</p>
+                      ): null}
+                  </div>
 
-              <div className="results">
-                <select className="selectsubject"  onChange={(e)=>{subjectfun3(e.target.value);
-                 setsub2error(false)
-                }}
-                style={subject2error ? {border: '1px solid red'}:null}
-                >
-                    <option value="default"  hidden>Select Subjects</option>
-                    {selectSub.filter((subjects)=>subjects !==subject1).map((subjects)=>(
-                       <option key={subjects} option={subjects}>{subjects}</option>
-                    ))}
-                </select>
-                {subject2error ? (
-                  <p>Please select subject</p>
-                ): null}
-              </div>
+                  <div className="results">
+                      <select className="selectsubject"  onChange={(e)=>{subjectfun3(e.target.value);
+                          setsub2error(false)
+                      }}
+                      style={subject2error ? {border: '1px solid red'}:null}
+                      >
+                          <option value="default"  hidden>Select Subjects</option>
+                          {selectSub.filter((subjects)=>subjects !==subject1).map((subjects)=>(
+                            <option key={subjects} option={subjects}>{subjects}</option>
+                          ))}
+                      </select>
+                      {subject2error ? (
+                        <p>Please select subject</p>
+                      ): null}
+                  </div>
 
-              <div className="results">
-                <select className="selectsubject"  onChange={(e)=>{subjectfun4(e.target.value);
-                setsub3error(false)
-                }}style={subject3error ? {border: '1px solid red'}:null}>
-                    <option value="default"  hidden>Select Subjects</option>
-                    {selectSub.filter((subjects)=>subjects !==subject2 && subjects !==subject1).map((subjects)=>(
-                       <option key={subjects} option={subjects}>{subjects}</option>
-                    ))}
-                </select>
-                {subject3error ? (
-                  <p>Please select subject</p>
-                ): null}
-              </div>
-            </div>
 
-            <div className="rows">
-              <div className="distric">
-                <select className="selectsubject"  aria-expanded='false' onChange={(e)=>{subjectfun5(e.target.value);
-                setDistrictError(false)
-                }}
-                style={districtError ? {border: '1px solid red'}:null}>
-                    <option   hidden>Select District</option>
-                    {districts.map((distr)=>(
-                        <option  value={distr}>{distr}</option>
-                    ))}
-                </select>
-                {districtError ? (
-                  <p>Please select Distric</p>
-                ): null}
+                  <div className="results">
+                      <select className="selectsubject"  onChange={(e)=>{subjectfun4(e.target.value);
+                          setsub3error(false)
+                      }}style={subject3error ? {border: '1px solid red'}:null}>
+                          <option value="default"  hidden>Select Subjects</option>
+                          {selectSub.filter((subjects)=>subjects !==subject2 && subjects !==subject1).map((subjects)=>(
+                            <option key={subjects} option={subjects}>{subjects}</option>
+                          ))}
+                      </select>
+                      {subject3error ? (
+                        <p>Please select subject</p>
+                      ): null}
+                   </div>
               </div>
-              <div className="z_score">
-                <input
-                  type="text"
-                  placeholder="Your Z-score"
-                  maxLength={6}
-                  name = 'zscore'
-                  style={zscoreError|| decimlerror ||  typeerror || lengtherror ? {border: '1px solid red'}:null}
-                  onChange={(e) => {
-                    let value = e.target.value;
-                    if (value.length === 1 && !value.includes('.')) {
-                      value += '.';
-                    }
-                    subjectfun6(value);
-                    setZscoreError(false)
-                    setdecimelerror(false)
-                    set_type_error(false)
-                    setlentherror(false)
-                  }}
-                />
-                {zscoreError ? (
-                  <p>Please Enter your zscore</p>
-                ): decimlerror ? (
-                   <p>Decimal point required</p>
-                ):typeerror ? (
-                  <p>Please enter numbers</p>
-                ):lengtherror ?(
-                  <p>Enter valid six bumbers</p>
-                ):null}
+              <div className="rows">
+                  <div className="distric">
+                    <select className="selectsubject"  aria-expanded='false' onChange={(e)=>{subjectfun5(e.target.value);
+                    setDistrictError(false)
+                    }}
+                    style={districtError ? {border: '1px solid red'}:null}>
+                        <option   hidden>Select District</option>
+                        {districts.map((distr)=>(
+                            <option  value={distr}>{distr}</option>
+                        ))}
+                    </select>
+                    {districtError ? (
+                      <p>Please select Distric</p>
+                    ): null}
+                  </div>
+
+                  <div className="z_score">
+                    <input
+                      type="text"
+                      placeholder="Your Z-score"
+                      maxLength={6}
+                      name = 'zscore'
+                      style={zscoreError|| decimlerror ||  typeerror || lengtherror ? {border: '1px solid red'}:null}
+                      onChange={(e) => {
+                        let value = e.target.value;
+                        if (value.length === 1 && !value.includes('.')) {
+                          value += '.';
+                        }
+                        subjectfun6(value);
+                        setZscoreError(false)
+                        setdecimelerror(false)
+                        set_type_error(false)
+                        setlentherror(false)
+                      }}
+                    />
+                      {zscoreError ? (
+                        <p>Please Enter your zscore</p>
+                      ): decimlerror ? (
+                        <p>Decimal point required</p>
+                      ):typeerror ? (
+                        <p>Please enter numbers</p>
+                      ):lengtherror ?(
+                        <p>Enter valid six bumbers</p>
+                      ):null}
+                  </div>
+                  <div className="buttons">
+                      <button type="submit" onClick={SubmitRisult} id='submit'>
+                        Submit
+                      </button>
+                      <button type="reset" id="reset">
+                        Clear
+                      </button>
+                  </div>
               </div>
-              <div className="buttons">
-                  <button type="submit" onClick={SubmitRisult}>
-                    Submit
-                  </button>
-                  <button type="reset" id="reset">
-                    Clear
-                  </button>
-              </div>
-            </div>
           </form>
-          
         </div>
       </div>
       <div className="result_table">

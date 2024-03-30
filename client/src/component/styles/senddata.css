@@ -16,7 +16,6 @@
 
 .from1 .text
 {
-    position: relative;
     text-align: left;
     padding: 15px 30px;
 }
@@ -24,6 +23,7 @@
 .text h5
 {
     font-size: 30px;
+    z-index: -1;
 }
 
 .text p

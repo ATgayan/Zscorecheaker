@@ -13,7 +13,7 @@ function Errorloading({onClose}) {
        <div className="boxinner">
            <img src={Image} alt="" srcset="" className='SuccessImage'/>
             <h3>Result Not Found !</h3>
-           <p>Opps something went wrong<br/>try again.</p>
+           <p>Unfortunately, you are not eligible <br />for admission to a university</p>
            <button onClick={handleContinue} className='btn-ok'>OK</button>
         </div>
     </div>

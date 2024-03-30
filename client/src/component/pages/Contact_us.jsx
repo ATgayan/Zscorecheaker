@@ -6,6 +6,9 @@ import { BsFillSendFill } from "react-icons/bs";
 import { IoMdClose } from "react-icons/io";
 import Message from '../messages/Cusmsg'
 import { useNavigate } from 'react-router-dom';
+import Images from '../images/girlcomminunicaion.jpg'
+import { SlClose } from "react-icons/sl";
+import { IoCloseSharp } from "react-icons/io5";
 
 function Contact_us({onClose}) {
 
@@ -77,57 +80,37 @@ function Contact_us({onClose}) {
                 {isPopupOpen && (
                   <Message onClose={closePopup}/>
                )}
-          <div className="popup-content">
-            <span className="close" onClick={onClose}>
-                <IoMdClose id='close'/>
-            </span>
-            <div className='sections'>
-            <div className='section1'>
-                 <div className="textside">
-                     <h2>Let's discuss<br/>on somethong cool<br/><span>together</span></h2>
-                 </div>
-    
-                <div className="topmargin">
-                    <div className="social">
-                       <p id='borderHigh'><FaEnvelope/><span>ascorechaek@edu.com</span></p>
-                    </div>
-                    <div className="social">
-                       <p id='borderHigh'><FaPhone/><span>ascorechaek@edu.com</span></p>
-                    </div>
-                    <div className="social">
-                       <p id='borderHigh'><FaFacebookF/><span>ascorechaek@edu.com</span></p>
-                    </div>
-                </div>
-    
-              <div className="bottomicon">
-                 <FaPhone id='bottomIcon'/>
-                 <FaFacebookF id='bottomIcon'/>
-                 <FaEnvelope id='bottomIcon'/>
-              </div>
-    
-            </div>
-            <div className='section2-form'>   
-              <h2>Tell us Your Problem!</h2>     
-                <form  className='fromtop' onSubmit={handleSubmit}>
-                  <div className="input-boxes">
-                     <input required name='name' placeholder='Your name'  value={formData.name} onChange={handleInputChange}></input>
-                  </div>
-    
-                  <div className="input-boxes">
-                    <input type='email'  name='email' required placeholder='Email'  value={formData.email} onChange={handleInputChange}></input>
-                  </div>
-    
-                  <div className="input-boxes-text">
-                    <textarea required   name='message'  placeholder='Your problem'  value={formData.message} onChange={handleInputChange}></textarea>
-                  </div>
-    
-                  <div className="btn-boxes">
-                    <button type='submit' id='submit'>Submit</button><span><BsFillSendFill id='sendIcon'/></span>
-                  </div>
-                </form>
-            </div>
-          </div>
-        </div>
+               <div className="containner">
+                   <div className="box1"></div>
+                        <span className="mobile_close" onClick={onClose} id='uperclose'>
+                           <IoMdClose id='close'/>
+                        </span>
+                   <div className="box2">
+                         <span className="close" onClick={onClose} id='uperclose'>
+                           <IoMdClose id='close'/>
+                        </span>
+                      <div className="formbox">
+                          <form  onSubmit={handleSubmit} onReset={clear}>
+                              <h4 id='tellp'>Connect with us now !</h4><br />
+                              <div className="input-boxes">
+                                 <input required name='name' placeholder='Your name'  value={formData.name} onChange={handleInputChange}></input>
+                              </div>
+               
+                              <div className="input-boxes">
+                                <input type='email'  name='email' required placeholder=' Enter Your Email'  value={formData.email} onChange={handleInputChange}></input>
+                              </div>
+               
+                              <div className="input-boxes">
+                                 <textarea required   name='message'  placeholder='Your problem'  value={formData.message} onChange={handleInputChange}></textarea>
+                              </div>
+               
+                              <div className="btn-boxes">
+                                 <button type='submit' id='submit'>Submit</button>
+                              </div>                
+                           </form>
+                      </div>
+                   </div>
+               </div>
         </div>
     );
 }

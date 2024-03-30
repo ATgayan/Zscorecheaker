@@ -96,7 +96,7 @@ app.post('/Serverlogin', (req, res) => {
  app.post('/User-Submited', (req, res) => {
    const { subjectstream, Distric, Zscore,subject1, subject2, subject3, } = req.body;
  
-   const query = `SELECT * FROM zscorechecker WHERE zscore < ?   AND sunject_strem =? AND district=? AND ((subject_one IN (?, ?, ?) AND subject_two IN (?, ?, ?) AND subject_tree IN (?, ?, ?)))`;
+   const query = `SELECT * FROM zscorechecker WHERE zscore < ? AND zscore!=0  AND sunject_strem = ? AND district = ? AND ((subject_one IN (?, ?, ?) AND subject_two IN (?, ?, ?) AND subject_tree IN (?, ?, ?)))`;
  
    const params = [
      Zscore,

@@ -43,28 +43,19 @@
 
 
 .boxinner {
-    width: 37%;
-    height: 47vh;
-    padding: 10px 0;
-    background-color: #fff;
+    width: 80%;
+    height: auto;
+    padding: 15px 15px;
+    background-color: #ffffff;
     border-radius: 5px;
     margin: auto;
     text-align: center;
 }
 
-
-.boxinner h1 
-{
-    position: relative;
-    top: -10px;
-    font-size: 80px;
-    font-weight: bold;
-    color: #265fad;
-}
-
 .boxinner h3
 {
-  top: -25px;
+  top: -19px;
+  font-size: 15px;
   position: relative;
   color: #272727;
 }
@@ -78,15 +69,15 @@
     cursor: pointer;
     background-color: #265fad;
     width: 25%;
-    padding: 10px 12px;
+    padding: 7px 12px;
 }
 
 .boxinner .SuccessImage
 {
-    width: 280px;
-    height: 170px;
+    width: 60%;
+    height: 70%;
     margin-left: 15px;
-    margin-top: -30px;
+    margin-top: -26px;
     margin-bottom: 18px;
 }
 
@@ -97,8 +88,8 @@
 
 .boxinner p
 {
-    margin-top: -15px;
-    font-size: 13px;
+    margin-top: -12px;
+    font-size: 11px;
     color: rgb(116, 116, 116);
 }
 
@@ -106,4 +97,160 @@
 {
   width: 60%;
  
+}
+
+@media only screen and (min-width: 615px){
+  .boxinner {
+    width: 70%;
+    height: auto;
+    padding: 19px 15px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    margin: auto;
+    text-align: center;
+  }
+  .boxinner .btn-ok
+  {
+    margin-top: 18px;
+    border: none;
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: #265fad;
+    width: 25%;
+    padding: 9px 12px;
+  }
+
+  .boxinner .SuccessImage
+  {
+      width: 55%;
+      height: 70%;
+      margin-left: 15px;
+      margin-top: -25px;
+      margin-bottom: 18px;
+  }
+  .boxinner h3
+  {
+    top: -19px;
+    font-size: 19px;
+    position: relative;
+    color: #272727;
+  }
+
+}
+
+@media only screen and (min-width: 760px){
+  .boxinner {
+    width: 60%;
+    height: auto;
+    padding: 19px 15px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    margin: auto;
+    text-align: center;
+  }
+  .boxinner .btn-ok
+  {
+    margin-top: 18px;
+    border: none;
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: #265fad;
+    width: 25%;
+    padding: 9px 12px;
+  }
+
+  .boxinner .SuccessImage
+  {
+      width: 60%;
+      height: 70%;
+      margin-left: 15px;
+      margin-top: -25px;
+      margin-bottom: 18px;
+  }
+  .boxinner h3
+  {
+    top: -19px;
+    font-size: 19px;
+    position: relative;
+    color: #272727;
+  }
+
+}
+
+
+@media only screen and (min-width: 860px){
+  .boxinner {
+    width: 35%;
+    height: auto;
+    background-color: #ffffff;
+    border-radius: 5px;
+    margin: auto;
+    text-align: center;
+  }
+  .boxinner .btn-ok
+  {
+    margin-top: 18px;
+    margin-bottom: 11px;
+    border: none;
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: #265fad;
+    width: 25%;
+    padding: 9px 12px;
+  }
+
+  .boxinner .SuccessImage
+  {
+      width: 70%;
+      height: 72%;
+      
+  }
+  .boxinner h3
+  {
+    top: -19px;
+    font-size: 17px;
+    position: relative;
+    color: #272727;
+  }
+
+}
+
+@media only screen and (min-width: 1023px){
+  .boxinner {
+    width: 35%;
+    height: auto;
+    background-color: #ffffff;
+    border-radius: 5px;
+    margin: auto;
+    text-align: center;
+  }
+  .boxinner .btn-ok
+  {
+    margin-top: 18px;
+    margin-bottom: 19px;
+    border: none;
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: #265fad;
+    width: 25%;
+    padding: 9px 12px;
+  }
+
+  .boxinner .SuccessImage
+  {
+      width: 70%;
+      height: 72%;
+      
+  }
+  .boxinner h3
+  {
+    top: -19px;
+    font-size: 17px;
+    position: relative;
+    color: #272727;
+  }
 }
